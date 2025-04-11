@@ -4,59 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chris Augustine | Product Leader</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        .container {
-            width: 80%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        header {
-            background-color: #f4f4f4;
-            padding: 20px 0;
-            text-align: center;
-        }
-        section {
-            padding: 20px 0;
-        }
-        h1 {
-            color: #2c3e50;
-        }
-        h2 {
-            color: #3498db;
-        }
-        .contact-info {
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
-        <div class="container">
+        <nav>
+            <div class="logo">Chris Augustine</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
             <h1>Chris Augustine</h1>
-            <p>Product Leader | Boston Area</p>
+            <h2>Product Leader</h2>
+            <p>Building teams that get stuff done.</p>
         </div>
     </header>
-    
-    <section class="container">
+
+    <section id="about">
         <h2>About Me</h2>
-        <p>Product leader who builds teams that get stuff done. Specializing in empowering passionate product managers and engineering teams, while getting hands-on, discovering business problems and solving them with cutting-edge technology solutions that change the way people live and work.</p>
-        
+        <p>I'm a product leader who specializes in empowering passionate product managers and engineering teams. I get hands-on, discover business problems, and solve them with cutting-edge technology solutions that change the way people live and work.</p>
+        <p>I thrive when leading collaborative, cross-functional teams to blow away the wildest expectations of users and customers.</p>
+    </section>
+
+    <section id="experience">
         <h2>Experience</h2>
-        <p>Currently working as a Group Product Manager at Wistia, leading strategy for the "Create" pillar, which focuses on enabling users to easily record and edit awesome videos and produce engaging live webinars.</p>
-        
-        <h2>Contact</h2>
-        <div class="contact-info">
-            <p>Email: cg.augustine@gmail.com</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/chrisaug21" target="_blank">linkedin.com/in/chrisaug21</a></p>
+        <div class="job">
+            <h3>Group Product Manager</h3>
+            <p class="company">Wistia</p>
+            <p class="period">November 2023 - Present</p>
+            <p>Responsible for strategy of Wistia's "Create" pillar, focusing on enabling users to easily record and edit awesome videos and produce engaging live webinars.</p>
+        </div>
+        <div class="job">
+            <h3>Director of Product Management</h3>
+            <p class="company">Robin</p>
+            <p class="period">March 2022 - November 2023</p>
+            <p>Established innovative product roadmap across fluid office-tech space during/after covid-19 pandemic, mentoring 4+ product managers and scaling R&D function from 4 to 9 delivery teams.</p>
+        </div>
+        <!-- You can add more jobs here -->
+        <a href="#" class="button">View Full Resume</a>
+    </section>
+
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <p>Showcasing select products and features I've helped bring to market.</p>
+        <div class="portfolio-grid">
+            <!-- This will be filled in later -->
+            <div class="portfolio-item">Coming Soon</div>
         </div>
     </section>
+
+    <section id="blog">
+        <h2>My Thoughts on Product</h2>
+        <div class="blog-posts">
+            <!-- This will be filled in later -->
+            <div class="blog-post">Coming Soon</div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Let's Connect</h2>
+        <p>I'm always open to discussing product strategy, leadership, or new opportunities.</p>
+        <a href="mailto:cg.augustine@gmail.com" class="button">Email Me</a>
+        <a href="https://www.linkedin.com/in/chrisaug21" class="button">LinkedIn</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Chris Augustine. All rights reserved.</p>
+    </footer>
 </body>
 </html>
