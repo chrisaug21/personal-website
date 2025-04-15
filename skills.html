@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills | Chris Augustine</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        [data-theme="light"],
+        :root:not([data-theme="dark"]) {
+            --background-color: #fff;
+            --color: #333;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #0077cc;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h2 {
+            color: #0077cc;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 0.5rem;
+        }
+        
+        .skill-category h2 .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-category ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-left: 0;
+        }
+
+        .skill-category li {
+            margin-bottom: 0.75rem;
+            padding-left: 0;
+            position: relative;
+            list-style: none;
+            display: block;
+        }
+
+        .skill-category li::before {
+            content: none;
+            display: none;
+        }
+        
+        .skill-name {
+            display: block;
+            color: #0077cc;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 0.3rem;
+        }
+        
+        .skill-tag {
+            display: inline-block;
+            background-color: rgba(0, 119, 204, 0.1);
+            color: #0077cc;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+            margin-right: 0.3rem;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css"> 
+    <script src="script.js" defer></script>
+    <script src="components.js" defer></script>
+</head>
+<body data-theme="light">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section>
+            <h1>Professional Skills</h1>
+            <p class="lead">A versatile product leader with expertise in building teams that solve real business problems with innovative technology solutions.</p>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h2><span class="icon">🧠</span><br>Product Strategy & Leadership</h2>
+                    <ul>
+                        <li>
+                            <span class="skill-name">Product Strategy</span>
+                            <div>
+                                <span class="skill-tag">Vision Creation</span>
+                                <span class="skill-tag">Market Analysis</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Product Roadmapping</span>
+                            <div>
+                                <span class="skill-tag">Prioritization</span>
+                                <span class="skill-tag">Outcome Planning</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Leadership</span>
+                            <div>
+                                <span class="skill-tag">Cross-Functional Collaboration</span>
+                                <span class="skill-tag">Strategic Decision Making</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Pragmatic Marketing Certified</span>
+                            <div>
+                                <span class="skill-tag">Product-Market Fit</span>
+                                <span class="skill-tag">Go-to-Market Strategy</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h2><span class="icon">👥</span><br>Team & People Management</h2>
+                    <ul>
+                        <li>
+                            <span class="skill-name">Managing & Mentoring</span>
+                            <div>
+                                <span class="skill-tag">Performance Reviews</span>
+                                <span class="skill-tag">Career Development</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Team Building</span>
+                            <div>
+                                <span class="skill-tag">Psychological Safety</span>
+                                <span class="skill-tag">Conflict Resolution</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Servant Leadership</span>
+                            <div>
+                                <span class="skill-tag">Empowering Teams</span>
+                                <span class="skill-tag">Removing Obstacles</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Organizational Design</span>
+                            <div>
+                                <span class="skill-tag">Scaling Teams</span>
+                                <span class="skill-tag">Role Definition</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h2><span class="icon">🔄</span><br>Agile & Product Processes</h2>
+                    <ul>
+                        <li>
+                            <span class="skill-name">Scrum Product Owner</span>
+                            <div>
+                                <span class="skill-tag">Backlog Management</span>
+                                <span class="skill-tag">Sprint Planning</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Agile Development</span>
+                            <div>
+                                <span class="skill-tag">Iterative Delivery</span>
+                                <span class="skill-tag">Continuous Improvement</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="skill-name">User Stories</span>
+                            <div>
+                                <span class="skill-tag">Requirements Definition</span>
+                                <span class="skill-tag">Acceptance Criteria</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Product Discovery</span>
+                            <div>
+                                <span class="skill-tag">User Interviews</span>
+                                <span class="skill-tag">Problem Validation</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h2><span class="icon">👨‍💻</span><br>Technology & Product Types</h2>
+                    <ul>
+                        <li>
+                            <span class="skill-name">Software-as-a-Service</span>
+                            <div>
+                                <span class="skill-tag">Subscription Models</span>
+                                <span class="skill-tag">Multi-tenant Architecture</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Native Mobile Apps</span>
+                            <div>
+                                <span class="skill-tag">iOS</span>
+                                <span class="skill-tag">Android</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Application Security</span>
+                            <div>
+                                <span class="skill-tag">Threat Modeling</span>
+                                <span class="skill-tag">Security Reviews</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Video Creation Tools</span>
+                            <div>
+                                <span class="skill-tag">Recording</span>
+                                <span class="skill-tag">Editing</span>
+                                <span class="skill-tag">Webinars</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h2><span class="icon">💡</span><br>User Experience & Design</h2>
+                    <ul>
+                        <li>
+                            <span class="skill-name">User Experience (UX)</span>
+                            <div>
+                                <span class="skill-tag">Usability Testing</span>
+                                <span class="skill-tag">Journey Mapping</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Gamification</span>
+                            <div>
+                                <span class="skill-tag">Engagement Mechanics</span>
+                                <span class="skill-tag">Behavioral Design</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Design Thinking</span>
+                            <div>
+                                <span class="skill-tag">Prototyping</span>
+                                <span class="skill-tag">User-Centered Design</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Accessibility</span>
+                            <div>
+                                <span class="skill-tag">WCAG Guidelines</span>
+                                <span class="skill-tag">Inclusive Design</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h2><span class="icon">📊</span><br>Data & Performance</h2>
+                    <ul>
+                        <li>
+                            <span class="skill-name">Data & Analytics</span>
+                            <div>
+                                <span class="skill-tag">Product Metrics</span>
+                                <span class="skill-tag">Dashboards</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="skill-name">A/B Testing</span>
+                            <div>
+                                <span class="skill-tag">Hypothesis Formation</span>
+                                <span class="skill-tag">Statistical Analysis</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="skill-name">OKRs & KPIs</span>
+                            <div>
+                                <span class="skill-tag">Goal Setting</span>
+                                <span class="skill-tag">Performance Tracking</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="skill-name">ROI Analysis</span>
+                            <div>
+                                <span class="skill-tag">Cost-Benefit Analysis</span>
+                                <span class="skill-tag">Business Case Development</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem; text-align: center;">
+                <h3>Industry Experience</h3>
+                <p>My diverse background spans multiple sectors, giving me versatile perspectives on product development.</p>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 1.5rem;">
+                    <span class="skill-tag" style="font-size: 1.1rem; padding: 0.5rem 1rem;">🎥 Video Marketing</span>
+                    <span class="skill-tag" style="font-size: 1.1rem; padding: 0.5rem 1rem;">🏢 Workplace Technology</span>
+                    <span class="skill-tag" style="font-size: 1.1rem; padding: 0.5rem 1rem;">🚕 Transportation</span>
+                    <span class="skill-tag" style="font-size: 1.1rem; padding: 0.5rem 1rem;">🏥 Healthcare</span>
+                    <span class="skill-tag" style="font-size: 1.1rem; padding: 0.5rem 1rem;">🎓 Education</span>
+                    <span class="skill-tag" style="font-size: 1.1rem; padding: 0.5rem 1rem;">🖨️ Print Production</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Chris Augustine. All rights reserved.</p>
+    </footer>
+</body>
+</html> 

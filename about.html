@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Chris Augustine</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        [data-theme="light"],
+        :root:not([data-theme="dark"]) {
+            --background-color: #fff;
+            --color: #333;
+        }
+
+        .about-section {
+            margin-bottom: 3rem;
+        }
+
+        .about-section h2 {
+            color: #0077cc;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-section h2:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background-color: #0077cc;
+        }
+
+        .about-quote {
+            font-style: italic;
+            color: #666;
+            margin: 2rem 0;
+            padding: 1rem 2rem;
+            border-left: 4px solid #0077cc;
+            background-color: #f5f5f5;
+        }
+
+        .about-quote cite {
+            display: block;
+            margin-top: 0.5rem;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Specific grid for the profile section */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .about-card {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-top: 4px solid #0077cc;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-card h3 {
+            color: #0077cc;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .about-card h3 .icon {
+            display: block;
+            margin: 0 auto 15px;
+            font-size: 2rem;
+        }
+
+        .profile-image {
+            border-radius: 8px;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .industry-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .industry-tag {
+            display: inline-block;
+            background-color: rgba(0, 119, 204, 0.1);
+            color: #0077cc;
+            padding: 0.3rem 0.7rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css"> 
+    <script src="script.js" defer></script>
+    <script src="components.js" defer></script>
+</head>
+<body data-theme="light">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section>
+            <h1>About Me</h1>
+            <p class="lead">A versatile product leader with a passion for empowering teams and solving meaningful problems.</p>
+            
+            <div class="about-section">
+                <div class="profile-grid">
+                    <div>
+                        <img src="images/Chris Augustine_2019_headshot.jpg" alt="Chris Augustine" class="profile-image">
+                    </div>
+                    <div>
+                        <h2>My Approach</h2>
+                        <p>I'm a product leader who specializes in empowering passionate product managers and engineering teams. I get hands-on, discover business problems, and solve them with cutting-edge technology solutions that change the way people live and work.</p>
+                        <p>I thrive when leading collaborative, cross-functional teams to blow away the wildest expectations of users and customers. My approach combines strategic vision with practical execution, always keeping the end-user at the center of everything we build.</p>
+                        <p>Over my 15+ years in product leadership across multiple industries, I've developed a toolkit that helps me navigate complex challenges and bring out the best in the teams I lead.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-section">
+                <h2>What Drives Me</h2>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <h3><span class="icon">🔍</span><br>Problem Discovery</h3>
+                        <p>I believe that great products start with deeply understanding user problems. I'm passionate about digging beneath surface-level requests to uncover the true pain points and needs that drive meaningful solutions.</p>
+                    </div>
+                    
+                    <div class="about-card">
+                        <h3><span class="icon">🚀</span><br>Team Empowerment</h3>
+                        <p>My leadership philosophy centers on building high-performing teams where everyone feels empowered to contribute their best work. I create environments of psychological safety, clear direction, and balanced autonomy.</p>
+                    </div>
+                    
+                    <div class="about-card">
+                        <h3><span class="icon">🔄</span><br>Continuous Learning</h3>
+                        <p>I'm allergic to getting too comfortable in one space. My career has spanned diverse industries because I'm constantly seeking new challenges and learning opportunities that push me to grow as a leader.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-section">
+                <h2>My Journey</h2>
+                <p>My career path has been anything but linear. I've navigated across diverse industries—from print production to education, healthcare to transportation, workplace tech to video marketing. Each transition has added new perspectives to my approach and broadened my toolkit.</p>
+                <p>What's remained consistent is my focus on building teams that get stuff done. I love empowering product managers and engineers to solve real problems with technology that actually changes how people live and work.</p>
+                <p>The most rewarding moments in my career have been when our cross-functional teams create solutions that blow away customer expectations. While I could have specialized in one industry, the versatility I've gained by tackling diverse challenges has proven far more valuable.</p>
+                
+                <div class="industry-tags">
+                    <span class="industry-tag">🎥 Video Marketing</span>
+                    <span class="industry-tag">🏢 Workplace Technology</span>
+                    <span class="industry-tag">🚕 Transportation</span>
+                    <span class="industry-tag">🏥 Healthcare</span>
+                    <span class="industry-tag">🎓 Education</span>
+                    <span class="industry-tag">🖨️ Print Production</span>
+                </div>
+            </div>
+            
+            <div class="about-section">
+                <h2>Core Values</h2>
+                <ul>
+                    <li><strong>Authenticity</strong> - I believe in being genuine and transparent in all interactions, building trust through honesty.</li>
+                    <li><strong>Curiosity</strong> - I approach problems with an open mind and a desire to learn, constantly asking "why" to get to the heart of issues.</li>
+                    <li><strong>Empathy</strong> - I strive to understand different perspectives, connecting with users and team members on a human level.</li>
+                    <li><strong>Excellence</strong> - I hold myself and my teams to high standards, believing that quality work speaks for itself.</li>
+                    <li><strong>Growth Mindset</strong> - I view challenges as opportunities to learn and improve, embracing feedback as a gift.</li>
+                </ul>
+            </div>
+            
+            <div class="about-section">
+                <h2>Beyond Work</h2>
+                <p>When I'm not focused on product leadership, you might find me exploring new technologies, mentoring aspiring product managers, or contributing to the broader product community.</p>
+                <p>I believe in balancing professional growth with personal well-being and am passionate about creating work environments that support this balance for everyone on my teams.</p>
+                <p>Want to learn more about my approach to product leadership? Check out my <a href="philosophy.html">Product Philosophy</a> page for the principles that guide my work.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Chris Augustine. All rights reserved.</p>
+    </footer>
+</body>
+</html> 

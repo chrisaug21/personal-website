@@ -12,18 +12,24 @@
             --color: #333;
         }
 
-        :root {
+        /* Add a class for the journey content instead */
+        .journey-content {
             font-size: 14px;
         }
 
         .journey-container {
-            max-width: 100%;
+            max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
-            padding: 0.5rem;
+            padding-top: 0.5rem;
+            padding-right: 0.5rem;
+            padding-bottom: 0.5rem;
+            padding-left: 0.5rem;
             position: relative;
             display: flex;
             flex-direction: column;
             gap: 0;
+            box-sizing: border-box;
         }
 
         .journey-map {
@@ -92,13 +98,13 @@
         }
 
         .info-panel h3 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
             color: #0077cc;
         }
 
         .info-panel h4 {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-bottom: 0.3rem;
             color: #333;
         }
@@ -124,14 +130,14 @@
         }
 
         .role p {
-            font-size: 0.92rem;
-            line-height: 1.2;
+            font-size: 1rem;
+            line-height: 1.3;
             margin-bottom: 0.4rem;
         }
 
         .role ul {
-            font-size: 0.92rem;
-            line-height: 1.2;
+            font-size: 1rem;
+            line-height: 1.3;
             margin-left: 1.2rem;
             margin-bottom: 0;
             margin-top: 0.2rem;
@@ -144,7 +150,7 @@
         .period {
             color: #666;
             font-style: italic;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             margin-bottom: 0.4rem;
         }
 
@@ -179,26 +185,20 @@
         }
     </style>
     <link rel="stylesheet" href="styles.css"> 
+    <script src="script.js" defer></script>
+    <script src="components.js" defer></script>
 </head>
 <body data-theme="light">
-    <header>
-        <nav>
-            <div class="logo"><a href="index.html">Chris Augustine</a></div>
-            <ul class="nav-links">
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="experience.html">Experience</a></li>
-                <li><a href="experience-journey.html" class="active">Career Journey</a></li>
-                <li><a href="index.html#portfolio">Portfolio</a></li>
-                <li><a href="index.html#blog">Blog</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div id="header-placeholder"></div>
 
-    <main>
+    <main class="journey-content">
         <section class="journey-container">
             <h1 style="margin-bottom: 0.25rem;">My Career Journey</h1>
-            <p class="lead" style="margin: 0 0 0.25rem 0;">A visual representation of my professional growth and achievements over the years.</p>
+            <p class="lead" style="margin: 0 0 1rem 0;">This timeline tells the story of my adventures across different industries—from print production to education, healthcare to transportation, workplace tech to video marketing. Each jump wasn't random; I've always been drawn to new challenges and learning opportunities. I guess you could say I'm allergic to getting too comfortable in one space!</p>
+            
+            <br>
+            
+            <p class="lead" style="margin: 0 0 1rem 0;">Along the way, I've discovered what really drives me: building teams that get stuff done. I love empowering product managers and engineers to solve real problems with technology that actually changes how people live and work. The most rewarding moments? When our cross-functional teams create solutions that blow away customer expectations. Sure, I could have specialized in one industry, but the toolkit I've built by tackling diverse challenges has proven far more valuable. My career isn't defined by any single domain—it's about rolling up my sleeves, bringing passionate people together, and turning complex problems into impactful solutions.</p>
             
             <div class="journey-map">
                 <svg class="timeline-svg" viewBox="-100 -100 2200 400" preserveAspectRatio="xMidYMid meet">

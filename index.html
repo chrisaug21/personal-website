@@ -5,85 +5,227 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chris Augustine | Product Leader</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         [data-theme="light"],
         :root:not([data-theme="dark"]) {
             --background-color: #fff;
             --color: #333;
         }
+        
+        .main-heading {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #0077cc, #6c5ce7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+        
+        .sub-heading {
+            font-size: 1.75rem;
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+        
+        .nav-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .nav-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+            padding-bottom: 1rem;
+            border: 1px solid #eaeaea;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .card-image {
+            height: 160px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #333;
+            display: flex;
+            align-items: center;
+            min-height: 2.5rem;
+        }
+        
+        .card-title i {
+            margin-right: 10px;
+            color: #0077cc;
+            font-size: 1.25rem;
+        }
+        
+        .card-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .card-link {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #0077cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+            margin-top: auto;
+        }
+        
+        .card-link:hover {
+            background: #005fa3;
+        }
+        
+        .intro-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            font-size: 1.5rem;
+            color: #0077cc;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #005fa3;
+        }
+        
+        footer {
+            margin-top: 4rem;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .main-heading {
+                font-size: 3rem;
+            }
+            
+            .sub-heading {
+                font-size: 1.5rem;
+            }
+            
+            .nav-card-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-card {
+                margin-bottom: 1rem;
+            }
+        }
     </style>
     <link rel="stylesheet" href="styles.css"> 
     <script src="script.js" defer></script>
+    <script src="components.js" defer></script>
 </head>
 <body data-theme="light">
-    <header>
-        <nav>
-            <div class="logo">Chris Augustine</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="experience.html">Experience</a></li>
-                <li><a href="experience-journey.html">Career Journey</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="hero">
-            <h1>Chris Augustine</h1>
-            <h2>Product Leader</h2>
-            <p>Building teams that get stuff done.</p>
+    <div id="header-placeholder"></div>
+    
+    <main class="container">
+        <div class="intro-container">
+            <h1 class="main-heading">Chris Augustine</h1>
+            <p class="sub-heading">Product Leader • Team Builder • Problem Solver</p>
+            <p>Building teams that get stuff done and creating products people love.</p>
+            
+            <div class="social-links">
+                <a href="https://linkedin.com/in/chrisaugustine" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:your.email@example.com" title="Email" target="_blank"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/chrisaugustine" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
         </div>
-    </header>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I'm a product leader who specializes in empowering passionate product managers and engineering teams. I get hands-on, discover business problems, and solve them with cutting-edge technology solutions that change the way people live and work.</p>
-        <p>I thrive when leading collaborative, cross-functional teams to blow away the wildest expectations of users and customers.</
-
-    <section id="experience">
-        <h2>Experience</h2>
-        <div class="job">
-            <h3>Group Product Manager</h3>
-            <p class="company">Wistia</p>
-            <p class="period">November 2023 - Present</p>
-            <p>Responsible for strategy of Wistia's "Create" pillar, focusing on enabling users to easily record and edit awesome videos and produce engaging live webinars.</p>
+        
+        <div class="nav-card-grid">
+            <div class="nav-card">
+                <div class="card-image" style="background-image: url('https://placehold.co/600x400/0077cc/white?text=About+Me');"></div>
+                <div class="card-content">
+                    <h3 class="card-title"><i class="fas fa-user"></i> About Me</h3>
+                    <p class="card-description">Learn about my background, values, and what drives me as a product leader.</p>
+                    <a href="about.html" class="card-link">Meet Chris</a>
+                </div>
+            </div>
+            
+            <div class="nav-card">
+                <div class="card-image" style="background-image: url('https://placehold.co/600x400/6c5ce7/white?text=Experience');"></div>
+                <div class="card-content">
+                    <h3 class="card-title"><i class="fas fa-briefcase"></i> Experience</h3>
+                    <p class="card-description">Explore my professional journey and the products I've helped build.</p>
+                    <a href="experience-journey.html" class="card-link">View Journey</a>
+                </div>
+            </div>
+            
+            <div class="nav-card">
+                <div class="card-image" style="background-image: url('https://placehold.co/600x400/00b894/white?text=Skills');"></div>
+                <div class="card-content">
+                    <h3 class="card-title"><i class="fas fa-tools"></i> Skills</h3>
+                    <p class="card-description">Discover my toolkit and approaches to product management.</p>
+                    <a href="skills.html" class="card-link">See Skills</a>
+                </div>
+            </div>
+            
+            <div class="nav-card">
+                <div class="card-image" style="background-image: url('https://placehold.co/600x400/e84393/white?text=Philosophy');"></div>
+                <div class="card-content">
+                    <h3 class="card-title"><i class="fas fa-lightbulb"></i> Philosophy</h3>
+                    <p class="card-description">My approach to product leadership and team building.</p>
+                    <a href="philosophy.html" class="card-link">Read More</a>
+                </div>
+            </div>
+            
+            <div class="nav-card">
+                <div class="card-image" style="background-image: url('https://placehold.co/600x400/f39c12/white?text=Contact');"></div>
+                <div class="card-content">
+                    <h3 class="card-title"><i class="fas fa-envelope"></i> Contact</h3>
+                    <p class="card-description">Let's connect and discuss opportunities or ideas.</p>
+                    <a href="contact.html" class="card-link">Get In Touch</a>
+                </div>
+            </div>
         </div>
-        <div class="job">
-            <h3>Director of Product Management</h3>
-            <p class="company">Robin</p>
-            <p class="period">March 2022 - November 2023</p>
-            <p>Established innovative product roadmap across fluid office-tech space during/after covid-19 pandemic, mentoring 4+ product managers and scaling R&D function from 4 to 9 delivery teams.</p>
-        </div>
-        <!-- You can add more jobs here -->
-        <a href="experience.html" class="button">View Full Experience</a>
-    </section>
-
-    <section id="portfolio">
-        <h2>Portfolio</h2>
-        <p>Showcasing select products and features I've helped bring to market.</p>
-        <div class="portfolio-grid">
-            <!-- This will be filled in later -->
-            <div class="portfolio-item">Coming Soon</div>
-        </div>
-    </section>
-
-    <section id="blog">
-        <h2>My Thoughts on Product</h2>
-        <div class="blog-posts">
-            <!-- This will be filled in later -->
-            <div class="blog-post">Coming Soon</div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2>Let's Connect</h2>
-        <p>I'm always open to discussing product strategy, leadership, or new opportunities.</p>
-        <a href="mailto:cg.augustine@gmail.com" class="button">Email Me</a>
-        <a href="https://www.linkedin.com/in/chrisaug21" class="button">LinkedIn</a>
-    </section>
+    </main>
+    
     <footer>
-        <p>&copy; 2025 Chris Augustine. All rights reserved.</p>
+        <p>&copy; 2025 Chris Augustine. All rights reserved. Placeholder images provided by <a href="https://placehold.co" target="_blank">Placehold.co</a></p>
     </footer>
-
 </body>
 </html>

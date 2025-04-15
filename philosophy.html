@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philosophy | Chris Augustine</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        [data-theme="light"],
+        :root:not([data-theme="dark"]) {
+            --background-color: #fff;
+            --color: #333;
+        }
+
+        .philosophy-section {
+            margin-bottom: 3rem;
+        }
+
+        .philosophy-section h2 {
+            color: #0077cc;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .philosophy-section h2:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background-color: #0077cc;
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .philosophy-card {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 4px;
+            border-top: 4px solid #0077cc;
+        }
+
+        .philosophy-card h3 {
+            color: #0077cc;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .philosophy-card h3 i {
+            display: block;
+            margin: 0 auto 15px;
+            font-size: 2rem;
+        }
+
+        .philosophy-quote {
+            font-style: italic;
+            color: #666;
+            margin: 2rem 0;
+            padding: 1rem 2rem;
+            border-left: 4px solid #0077cc;
+            background-color: #f5f5f5;
+        }
+
+        .philosophy-quote cite {
+            display: block;
+            margin-top: 0.5rem;
+            font-weight: bold;
+            font-style: normal;
+        }
+        
+        .list-with-icons li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .list-with-icons i {
+            color: #0077cc;
+            margin-right: 10px;
+            margin-top: 4px;
+        }
+        
+        .list-with-icons span {
+            flex: 1;
+        }
+
+        .inspirations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .inspiration-card {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-top: 4px solid #0077cc;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .inspiration-card .philosophy-quote {
+            margin: 0;
+            padding: 0;
+            border-left: none;
+            background-color: transparent;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .inspiration-card .philosophy-quote cite {
+            margin-top: 1.5rem;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .inspirations-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .inspiration-card {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css"> 
+    <script src="script.js" defer></script>
+    <script src="components.js" defer></script>
+</head>
+<body data-theme="light">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section>
+            <h1>My Product Philosophy</h1>
+            <p class="lead">A collection of principles and beliefs that guide my approach to product leadership and team building.</p>
+            
+            <div class="philosophy-section">
+                <h2>Core Principles</h2>
+                <p>Over my 15+ years in product leadership, I've developed a set of core principles that guide my approach to building successful products and teams:</p>
+                
+                <div class="philosophy-grid">
+                    <div class="philosophy-card">
+                        <h3><i class="fas fa-search"></i><br>Problems First, Solutions Later</h3>
+                        <p>Great products solve real problems for real people. I believe in deeply understanding customer problems before jumping to solutions. This means spending time with users, analyzing data, and challenging assumptions.</p>
+                    </div>
+                    
+                    <div class="philosophy-card">
+                        <h3><i class="fas fa-handshake"></i><br>Empower Through Trust</h3>
+                        <p>I build teams where trust flows in all directions. This means giving people the autonomy to make decisions, providing the context they need to succeed, and supporting them when they take calculated risks.</p>
+                    </div>
+                    
+                    <div class="philosophy-card">
+                        <h3><i class="fas fa-chart-line"></i><br>Data-Informed, Not Data-Driven</h3>
+                        <p>While data is crucial, it's just one input. I believe in using data to inform decisions, but also valuing qualitative insights, expert judgment, and vision. The best decisions blend all these perspectives.</p>
+                    </div>
+                    
+                    <div class="philosophy-card">
+                        <h3><i class="fas fa-sync-alt"></i><br>Iterate Rapidly, Learn Continuously</h3>
+                        <p>Perfect is the enemy of good. I advocate for getting minimum viable solutions into users' hands quickly, learning from real usage, and continuously improving based on feedback.</p>
+                    </div>
+                    
+                    <div class="philosophy-card">
+                        <h3><i class="fas fa-users"></i><br>Cross-Functional Collaboration</h3>
+                        <p>The best products emerge when engineering, design, product, marketing, and other functions work seamlessly together. I foster environments where diverse perspectives are valued and silos are broken down.</p>
+                    </div>
+                    
+                    <div class="philosophy-card">
+                        <h3><i class="fas fa-bullseye"></i><br>Focus on Outcomes, Not Output</h3>
+                        <p>Success isn't measured by features shipped, but by problems solved and value delivered. I orient teams around meaningful outcomes for users and the business, not just completing a roadmap.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="philosophy-section">
+                <h2>Leadership Approach</h2>
+                <p>Building high-performing teams requires intentional leadership. Here's how I approach leading product teams:</p>
+                
+                <ul class="list-with-icons">
+                    <li><i class="fas fa-hands-helping"></i> <span><strong>Servant Leadership:</strong> My job is to set clear direction and then remove obstacles so my team can do their best work.</span></li>
+                    <li><i class="fas fa-graduation-cap"></i> <span><strong>Career Development:</strong> I invest heavily in helping team members grow, both in their current roles and toward their long-term career goals.</span></li>
+                    <li><i class="fas fa-shield-alt"></i> <span><strong>Psychological Safety:</strong> I create environments where it's safe to take risks, make mistakes, and speak up with contrary opinions.</span></li>
+                    <li><i class="fas fa-comment-dots"></i> <span><strong>Balanced Feedback:</strong> I provide direct, actionable feedback that balances appreciation for strengths with guidance on areas for growth.</span></li>
+                    <li><i class="fas fa-compass"></i> <span><strong>Clarity of Purpose:</strong> I ensure teams understand not just what we're building, but why it matters to users and the business.</span></li>
+                    <li><i class="fas fa-flag"></i> <span><strong>Leading by Example:</strong> I demonstrate the behaviors I expect from my team - curiosity, customer focus, data literacy, and collaborative problem-solving.</span></li>
+                </ul>
+            </div>
+            
+            <div class="philosophy-section">
+                <h2>Product Development Process</h2>
+                <p>While each organization requires a tailored approach, I value these elements in any product development process:</p>
+                
+                <ol class="list-with-icons">
+                    <li><i class="fas fa-binoculars"></i> <span><strong>Continuous Discovery:</strong> Ongoing research to identify and validate customer problems and opportunities.</span></li>
+                    <li><i class="fas fa-sort-amount-down"></i> <span><strong>Collaborative Prioritization:</strong> Transparent decision-making about what to build, involving key stakeholders.</span></li>
+                    <li><i class="fas fa-road"></i> <span><strong>Outcome-Based Roadmapping:</strong> Focusing on the problems we're solving rather than just features to build.</span></li>
+                    <li><i class="fas fa-puzzle-piece"></i> <span><strong>Iterative Development:</strong> Breaking work into small, valuable increments that can be delivered frequently.</span></li>
+                    <li><i class="fas fa-flask"></i> <span><strong>Hypothesis-Driven Experimentation:</strong> Testing assumptions with real users to validate solutions.</span></li>
+                    <li><i class="fas fa-tachometer-alt"></i> <span><strong>Measuring Impact:</strong> Defining and tracking metrics that demonstrate value for users and the business.</span></li>
+                    <li><i class="fas fa-book-open"></i> <span><strong>Continuous Learning:</strong> Regular retrospectives and knowledge sharing to improve our process and outcomes.</span></li>
+                </ol>
+            </div>
+            
+            <div class="philosophy-section">
+                <h2>People Who Inspire Me</h2>
+                <p>These product leaders and thinkers have shaped my approach to product management through their insights, methodologies, and vision.</p>
+                
+                <div class="inspirations-grid">
+                    <div class="inspiration-card">
+                        <div class="philosophy-quote">
+                            "Great teams anchor their discovery work in desired outcomes rather than specific solutions. This shift in mindset opens them up to infinite possibilities."
+                            <cite>— Teresa Torres, Product Discovery Coach</cite>
+                        </div>
+                    </div>
+                    
+                    <div class="inspiration-card">
+                        <div class="philosophy-quote">
+                            "Build a product team, not a feature factory. Focus on solving real problems for your customers, not just building more features. Make sure your team has a clear mission and strategy to guide their decisions."
+                            <cite>— Melissa Perri, Author of "Escaping the Build Trap"</cite>
+                        </div>
+                    </div>
+                    
+                    <div class="inspiration-card">
+                        <div class="philosophy-quote">
+                            "The job of a product manager is to discover a product that is valuable, usable, and feasible."
+                            <cite>— Marty Cagan, Partner at Silicon Valley Product Group</cite>
+                        </div>
+                    </div>
+                    
+                    <div class="inspiration-card">
+                        <div class="philosophy-quote">
+                            "Fall in love with the problem, not the solution, and the rest will follow."
+                            <cite>— Uri Levine, Co-founder of Waze</cite>
+                        </div>
+                    </div>
+                    
+                    <div class="inspiration-card">
+                        <div class="philosophy-quote">
+                            "Being a great product manager is not about output, it's about outcomes. It's not about how much you ship, but the value that you create."
+                            <cite>— Petra Wille, Product Leadership Coach</cite>
+                        </div>
+                    </div>
+                    
+                    <div class="inspiration-card">
+                        <div class="philosophy-quote">
+                            "Product management is not about being a designer, engineer, marketer, or any other role. It's about being all of those things, but none of them at the same time."
+                            <cite>— Roman Pichler, Product Management Expert</cite>
+                        </div>
+                    </div>
+                    
+                    <div class="inspiration-card">
+                        <div class="philosophy-quote">
+                            "Great products are created at the intersection of feasibility, viability, and desirability."
+                            <cite>— Tim Brown, Executive Chair at IDEO</cite>
+                        </div>
+                    </div>
+                    
+                    <div class="inspiration-card">
+                        <div class="philosophy-quote">
+                            "The illiterate of the 21st century will not be those who cannot read and write, but those who cannot learn, unlearn, and relearn."
+                            <cite>— John Cutler, Product Evangelist</cite>
+                        </div>
+                    </div>
+                    
+                    <div class="inspiration-card">
+                        <div class="philosophy-quote">
+                            "If we're not solving a real user problem in a way that meets a business need, we're just making digital art."
+                            <cite>— Hope Gurion, Product Leader & Coach</cite>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Chris Augustine. All rights reserved.</p>
+    </footer>
+</body>
+</html> 

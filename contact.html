@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Chris Augustine</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        [data-theme="light"],
+        :root:not([data-theme="dark"]) {
+            --background-color: #fff;
+            --color: #333;
+        }
+
+        .contact-section {
+            margin-bottom: 3rem;
+        }
+
+        .contact-section h2 {
+            color: #0077cc;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .contact-section h2:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background-color: #0077cc;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background-color: #f5f5f5;
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 4px solid #0077cc;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #0077cc;
+        }
+
+        .contact-button {
+            display: inline-block;
+            background-color: #0077cc;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .contact-button:hover {
+            background-color: #005fa3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-note {
+            color: #666;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        .contact-form {
+            background-color: #f5f5f5;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css"> 
+    <script src="script.js" defer></script>
+    <script src="components.js" defer></script>
+</head>
+<body data-theme="light">
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section>
+            <h1>Let's Connect</h1>
+            <p class="lead">I'm always open to discussing product strategy, leadership, consulting, and mentoring opportunities.</p>
+            
+            <div class="contact-section">
+                <h2>Get in Touch</h2>
+                <p>Whether you're looking for product leadership insights, career advice, or just want to connect with a fellow product enthusiast, I'd love to hear from you.</p>
+                
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <h3>Email</h3>
+                        <p class="contact-info">cg.augustine@gmail.com</p>
+                        <p class="contact-note">Best for detailed conversations</p>
+                        <a href="mailto:cg.augustine@gmail.com" class="contact-button">Email Me</a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+                        <h3>LinkedIn</h3>
+                        <p class="contact-info">chrisaug21</p>
+                        <p class="contact-note">Connect professionally</p>
+                        <a href="https://www.linkedin.com/in/chrisaug21" class="contact-button">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-section">
+                <h2>Send Me a Message</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" class="form-control" placeholder="John Doe" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" class="form-control" placeholder="What's this about?">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" class="form-control" placeholder="Write your message here..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="contact-button">Send Message</button>
+                </form>
+                <p style="text-align: center; margin-top: 1rem; color: #666; font-style: italic;">Note: This form is currently under development.</p>
+            </div>
+            
+            <div class="contact-section">
+                <h2>Looking to Work Together?</h2>
+                <p>If you're interested in exploring how we might work together, I'm open to discussing:</p>
+                <ul>
+                    <li><i class="fas fa-briefcase fa-fw" style="color: #0077cc;"></i> Consulting on product strategy or team building</li>
+                    <li><i class="fas fa-comment fa-fw" style="color: #0077cc;"></i> Speaking engagements related to product management</li>
+                    <li><i class="fas fa-users fa-fw" style="color: #0077cc;"></i> Mentoring product managers or aspiring leaders</li>
+                </ul>
+                <p>Feel free to reach out through any of the channels above to start the conversation.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Chris Augustine. All rights reserved.</p>
+    </footer>
+</body>
+</html> 
