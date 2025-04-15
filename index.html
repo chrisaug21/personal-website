@@ -61,6 +61,20 @@
             height: 160px;
             background-size: cover;
             background-position: center;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .image-header {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            width: 100%;
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .card-content {
@@ -78,12 +92,16 @@
             display: flex;
             align-items: center;
             min-height: 2.5rem;
+            height: 2.5rem;
+            width: 100%;
+            overflow: hidden;
         }
         
         .card-title i {
             margin-right: 10px;
             color: #0077cc;
             font-size: 1.25rem;
+            flex-shrink: 0;
         }
         
         .card-description {
@@ -178,7 +196,9 @@
         
         <div class="nav-card-grid">
             <div class="nav-card">
-                <div class="card-image" style="background-image: url('https://placehold.co/600x400/0077cc/white?text=About+Me');"></div>
+                <div class="card-image" style="background-color: #0077cc;">
+                    <h2 class="image-header">About Me</h2>
+                </div>
                 <div class="card-content">
                     <h3 class="card-title"><i class="fas fa-user"></i> About Me</h3>
                     <p class="card-description">Learn about my background, values, and what drives me as a product leader.</p>
@@ -187,7 +207,9 @@
             </div>
             
             <div class="nav-card">
-                <div class="card-image" style="background-image: url('https://placehold.co/600x400/6c5ce7/white?text=Experience');"></div>
+                <div class="card-image" style="background-color: #6c5ce7;">
+                    <h2 class="image-header">Experience</h2>
+                </div>
                 <div class="card-content">
                     <h3 class="card-title"><i class="fas fa-briefcase"></i> Experience</h3>
                     <p class="card-description">Explore my professional journey and the products I've helped build.</p>
@@ -196,7 +218,9 @@
             </div>
             
             <div class="nav-card">
-                <div class="card-image" style="background-image: url('https://placehold.co/600x400/00b894/white?text=Skills');"></div>
+                <div class="card-image" style="background-color: #00b894;">
+                    <h2 class="image-header">Skills</h2>
+                </div>
                 <div class="card-content">
                     <h3 class="card-title"><i class="fas fa-tools"></i> Skills</h3>
                     <p class="card-description">Discover my toolkit and approaches to product management.</p>
@@ -205,7 +229,9 @@
             </div>
             
             <div class="nav-card">
-                <div class="card-image" style="background-image: url('https://placehold.co/600x400/e84393/white?text=Philosophy');"></div>
+                <div class="card-image" style="background-color: #e84393;">
+                    <h2 class="image-header">Philosophy</h2>
+                </div>
                 <div class="card-content">
                     <h3 class="card-title"><i class="fas fa-lightbulb"></i> Philosophy</h3>
                     <p class="card-description">My approach to product leadership and team building.</p>
@@ -214,7 +240,9 @@
             </div>
             
             <div class="nav-card">
-                <div class="card-image" style="background-image: url('https://placehold.co/600x400/f39c12/white?text=Contact');"></div>
+                <div class="card-image" style="background-color: #f39c12;">
+                    <h2 class="image-header">Contact</h2>
+                </div>
                 <div class="card-content">
                     <h3 class="card-title"><i class="fas fa-envelope"></i> Contact</h3>
                     <p class="card-description">Let's connect and discuss opportunities or ideas.</p>
