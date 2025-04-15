@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Journey | Chris Augustine</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        [data-theme="light"],
+        :root:not([data-theme="dark"]) {
+            --background-color: #fff;
+            --color: #333;
+        }
+
+        :root {
+            font-size: 14px;
+        }
+
+        .journey-container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0.5rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .journey-map {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            overflow: visible;
+            margin: 0 auto;
+            padding: 0 50px;
+            margin-bottom: -40px;
+        }
+
+        .timeline-svg {
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+
+        .path {
+            stroke: #0077cc;
+            stroke-width: 5;
+            fill: none;
+        }
+
+        .node-group {
+            cursor: pointer;
+            transition: transform 0.8s ease;
+            transform: translateY(0);
+        }
+
+        .node-group:hover {
+            /* Dramatic vertical movement */
+            transform: translateY(-32px);
+        }
+
+        .company-node {
+            fill: white;
+            stroke: #0077cc;
+            stroke-width: 5;
+        }
+
+        .company-logo {
+            pointer-events: none;
+        }
+
+        .info-panel {
+            position: relative;
+            width: 90%;
+            max-width: 1600px;
+            margin: 0 auto;
+            margin-top: 0;
+            background: white;
+            padding: 0.75rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 100;
+            order: -1;
+        }
+
+        .info-panel.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .info-panel h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #0077cc;
+        }
+
+        .info-panel h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: #333;
+        }
+
+        .roles-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 0;
+        }
+
+        .roles-container:not(.multiple-roles) {
+            max-width: 800px;
+            margin: 0;
+        }
+
+        .role {
+            margin-bottom: 0;
+            padding: 0.6rem;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            background: #f9f9f9;
+        }
+
+        .role p {
+            font-size: 0.92rem;
+            line-height: 1.2;
+            margin-bottom: 0.4rem;
+        }
+
+        .role ul {
+            font-size: 0.92rem;
+            line-height: 1.2;
+            margin-left: 1.2rem;
+            margin-bottom: 0;
+            margin-top: 0.2rem;
+        }
+
+        .role li {
+            margin-bottom: 0.25rem;
+        }
+
+        .period {
+            color: #666;
+            font-style: italic;
+            font-size: 0.85rem;
+            margin-bottom: 0.4rem;
+        }
+
+        /* Update the node positioning */
+        /* Removed non-standard CSS attribute setters (r, x, y, etc.) */
+
+        @media (max-width: 768px) {
+            .journey-map {
+                height: 400px;
+                padding: 0 75px;  /* Adjusted mobile padding */
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .timeline-svg {
+                min-width: 1800px;  /* Increased mobile min-width */
+            }
+
+            .roles-container {
+                grid-template-columns: 1fr;
+            }
+
+            /* Removed all CSS rules related to r, x, y, width, height for node/logo elements */
+        }
+
+        @media (max-width: 480px) {
+            .journey-map {
+                padding: 0 40px; /* Adjusted smallest screen padding */
+            }
+
+            /* Removed all CSS rules related to r, x, y, width, height for node/logo elements */
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body data-theme="light">
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html">Chris Augustine</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="experience-journey.html" class="active">Career Journey</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="index.html#blog">Blog</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="journey-container">
+            <h1 style="margin-bottom: 0.25rem;">My Career Journey</h1>
+            <p class="lead" style="margin: 0 0 0.25rem 0;">A visual representation of my professional growth and achievements over the years.</p>
+            
+            <div class="journey-map">
+                <svg class="timeline-svg" viewBox="-100 -100 2200 400" preserveAspectRatio="xMidYMid meet">
+                    <!-- Path and nodes will be generated by JavaScript -->
+                </svg>
+                <div class="info-panel">
+                    <div class="company-info">
+                        <!-- Content will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Chris Augustine. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Career data
+        const careerData = [
+            {
+                company: "Wistia",
+                website: "https://wistia.com",
+                logo: "https://logo.clearbit.com/wistia.com",
+                roles: [
+                    {
+                        title: "Group Product Manager",
+                        period: "November 2023 - Present",
+                        description: "Leading product strategy and execution for Wistia's 'Create' pillar, focusing on video creation tools, editing capabilities, and webinar platform. Responsible for defining roadmap prioritization and ensuring alignment with company objectives.",
+                        achievements: [
+                            "Lead strategy for video creation and webinar platforms",
+                            "Mentor a team of 3 product managers, establishing clear OKRs and driving product excellence",
+                            "Collaborate with engineering, design, and marketing teams to execute product-led growth initiatives",
+                            "Conduct user research to identify pain points and opportunities for feature improvements"
+                        ]
+                    }
+                ],
+                x: 2000,
+                y: 150
+            },
+            {
+                company: "Robin",
+                website: "https://robinpowered.com",
+                logo: "https://logo.clearbit.com/robinpowered.com",
+                roles: [
+                    {
+                        title: "Director of Product Management",
+                        period: "March 2022 - November 2023",
+                        description: "Led product strategy and execution during a pivotal period in workplace technology. Oversaw the entire product portfolio focused on desk booking, room reservations, and workplace analytics as organizations navigated the post-pandemic return to office landscape.",
+                        achievements: [
+                            "Established innovative product roadmap for the office-tech platform",
+                            "Mentored and developed a team of 4+ product managers, implementing structured career development plans",
+                            "Successfully scaled R&D capacity from 4 to 9 delivery teams while maintaining productivity and quality",
+                            "Implemented agile methodologies to improve time-to-market for new features"
+                        ]
+                    },
+                    {
+                        title: "Senior Manager Product Management",
+                        period: "February 2021 - March 2022",
+                        description: "Established product management practices during a period of rapid growth. Led cross-functional teams through the challenges of pandemic-era office technology transformation, developing solutions for hybrid workplaces.",
+                        achievements: [
+                            "Built robust product management frameworks that improved prioritization and resource allocation",
+                            "Led cross-functional teams to deliver key platform capabilities supporting hybrid work models",
+                            "Drove product innovation resulting in new revenue-generating features",
+                            "Collaborated with executive leadership to align product strategy with market opportunities"
+                        ]
+                    }
+                ],
+                x: 1800,
+                y: 150
+            },
+            {
+                company: "ZoomInfo",
+                website: "https://zoominfo.com",
+                logo: "https://logo.clearbit.com/zoominfo.com",
+                roles: [
+                    {
+                        title: "Director of Product Management",
+                        period: "August 2020 - February 2021",
+                        description: "Led product strategy and execution for 'ZoomInfo for Recruiters' product line. Managed the complete product lifecycle from concept to launch, creating specialized data and workflow solutions for recruiting professionals within ZoomInfo's B2B data platform.",
+                        achievements: [
+                            "Led end-to-end product management for new product line",
+                            "Built and mentored a team of 2 product managers, establishing clear KPIs and development objectives",
+                            "Implemented agile processes to increase development velocity",
+                            "Collaborated with sales and marketing to develop go-to-market strategy for the new product line"
+                        ]
+                    }
+                ],
+                x: 1600,
+                y: 150
+            },
+            {
+                company: "Toast Inc.",
+                website: "https://pos.toasttab.com",
+                logo: "https://logo.clearbit.com/toasttab.com",
+                roles: [
+                    {
+                        title: "Director of Product Management",
+                        period: "March 2020 - April 2020",
+                        description: "Joined Toast to lead product strategy for restaurant technology solutions at the onset of the COVID-19 pandemic. Brief tenure coincided with industry-wide restaurant closures that significantly impacted the business, leading to organizational restructuring.",
+                        achievements: [
+                            "Quickly assessed product portfolio and identified adaptation opportunities for restaurants during pandemic",
+                            "Developed strategic initiatives to support restaurants transitioning to takeout/delivery models",
+                            "Collaborated with leadership team on crisis response strategy",
+                            "Contributed to product roadmap reprioritization to address urgent customer needs during unprecedented market conditions"
+                        ]
+                    }
+                ],
+                x: 1400,
+                y: 150
+            },
+            {
+                company: "Virgin Pulse (2nd Stint)",
+                website: "https://virginpulse.com",
+                logo: "./images/vplogo.png",
+                roles: [
+                    {
+                        title: "Director of Product Management",
+                        period: "June 2019 - August 2020",
+                        description: "Rejoined Virgin Pulse to lead product strategy for the flagship health and wellbeing platform serving over 3 million users worldwide. Led multiple product teams through a period of international expansion and product consolidation following several acquisitions.",
+                        achievements: [
+                            "Drove comprehensive platform strategy for a user base of over 3 million",
+                            "Managed and mentored a team of 6 product managers across multiple product lines and geographies",
+                            "Successfully implemented matrixed team structure that improved cross-functional collaboration",
+                            "Led integration of acquired technologies into the core platform, consolidating features while maintaining user satisfaction"
+                        ]
+                    },
+                    {
+                        title: "Senior Product Manager",
+                        period: "April 2016 - May 2019",
+                        description: "Led product development for the core engagement platform of Virgin Pulse's health and wellbeing solution. Responsible for the user journey, gamification features, and social components that drove daily active usage.",
+                        achievements: [
+                            "Drove product strategy to increase daily active users and improve retention",
+                            "Led cross-functional teams through complete redesign of the mobile application",
+                            "Implemented agile processes that increased feature delivery velocity while maintaining quality",
+                            "Developed data-driven feature prioritization framework adopted across product organization"
+                        ]
+                    }
+                ],
+                x: 1200,
+                y: 150
+            },
+            {
+                company: "Zipcar",
+                website: "https://zipcar.com",
+                logo: "https://logo.clearbit.com/zipcar.com",
+                roles: [
+                    {
+                        title: "Product Manager",
+                        period: "March 2015 - March 2016",
+                        description: "Led product development for Zipcar's car-sharing platform, focusing on the mobile application and reservation systems. Responsible for enhancing the user experience from account creation through vehicle reservation, access, and return.",
+                        achievements: [
+                            "Drove roadmap execution for multiple features that increased conversion rates and reduced support calls",
+                            "Led agile development teams through successful launch of new mobile app features",
+                            "Conducted extensive user research and testing to optimize the reservation flow",
+                            "Collaborated with engineering and operations teams to develop innovative vehicle access solutions"
+                        ]
+                    }
+                ],
+                x: 1000,
+                y: 150
+            },
+            {
+                company: "Virgin Pulse (1st Stint)",
+                website: "https://virginpulse.com",
+                logo: "./images/vplogo.png",
+                roles: [
+                    {
+                        title: "Product Manager",
+                        period: "April 2014 - March 2015",
+                        description: "Managed product development for Virgin Pulse's health and wellbeing platform, focusing on challenge and rewards features. Led the creation of enterprise-level team competitions and challenge systems that drove engagement.",
+                        achievements: [
+                            "Drove product strategy for challenge systems to increase user participation",
+                            "Led cross-functional teams to develop and launch a new rewards marketplace with multiple partners",
+                            "Implemented agile methodologies to improve sprint completion rates",
+                            "Collaborated with data science team to develop engagement metrics and analytics dashboard"
+                        ]
+                    },
+                    {
+                        title: "Marketing Manager",
+                        period: "April 2013 - March 2014",
+                        description: "Managed marketing initiatives for Virgin Pulse's B2B health platform, creating campaigns targeting HR and benefits decision-makers. Developed client communication strategies and engagement programs.",
+                        achievements: [
+                            "Drove marketing strategy to generate qualified enterprise leads",
+                            "Led development of content marketing program to increase resource downloads",
+                            "Managed client communications strategy focused on client retention",
+                            "Collaborated with sales team to develop targeted vertical market campaigns"
+                        ]
+                    }
+                ],
+                x: 800,
+                y: 150
+            },
+            {
+                company: "CVS Caremark",
+                website: "https://www.caremark.com",
+                logo: "https://logo.clearbit.com/cvshealth.com",
+                roles: [
+                    {
+                        title: "Marketing Manager",
+                        period: "October 2011 - April 2013",
+                        description: "Managed marketing initiatives for CVS Caremark's pharmacy benefit management (PBM) services. Developed B2B communication strategies targeting HR professionals and benefits administrators at Fortune 500 companies.",
+                        achievements: [
+                            "Drove comprehensive marketing strategy for specialty pharmacy services",
+                            "Led development of digital campaign to increase client portal adoption",
+                            "Managed customer communications program with high satisfaction rating from clients",
+                            "Collaborated with product teams to create effective messaging for new health management offerings"
+                        ]
+                    }
+                ],
+                x: 600,
+                y: 150
+            },
+            {
+                company: "Stonehill College",
+                website: "https://www.stonehill.edu",
+                logo: "https://logo.clearbit.com/stonehill.edu",
+                roles: [
+                    {
+                        title: "Senior Marketing Manager",
+                        period: "January 2008 - September 2011",
+                        description: "Led marketing initiatives for Stonehill College, a private liberal arts institution. Managed comprehensive campaigns targeting prospective students, alumni, and donors. Oversaw web presence, print materials, and event marketing.",
+                        achievements: [
+                            "Drove marketing strategy to increase application volume",
+                            "Led complete website redesign project to improve user engagement metrics",
+                            "Managed brand communications resulting in measurable improvements in brand perception surveys",
+                            "Developed innovative social media strategy early in platform adoption, establishing the college as a digital leader among peers"
+                        ]
+                    }
+                ],
+                x: 400,
+                y: 150
+            },
+            {
+                company: "Marketing Resources",
+                website: "https://mriglobal.com",
+                logo: "./images/mrilogo.jpg",
+                roles: [
+                    {
+                        title: "Project Manager",
+                        period: "January 2006 - October 2007",
+                        description: "Managed complex marketing projects and client relationships for a full-service marketing agency. Oversaw creative development, production timelines, and budget management for diverse B2B and B2C clients across healthcare, financial services, and technology sectors.",
+                        achievements: [
+                            "Successfully managed client projects, delivering on time and within budget",
+                            "Led cross-functional teams of designers, copywriters, and developers to deliver integrated marketing campaigns",
+                            "Drove project delivery processes to improve resource utilization",
+                            "Maintained high client retention rate through exceptional service and quality deliverables"
+                        ]
+                    }
+                ],
+                x: 200,
+                y: 150
+            },
+            {
+                company: "FedEx Kinko's",
+                website: "https://www.fedex.com/en-us/office.html",
+                logo: "https://logo.clearbit.com/fedex.com",
+                roles: [
+                    {
+                        title: "Project Manager",
+                        period: "September 2002 - December 2005",
+                        description: "Managed complex printing and publishing projects for corporate clients at FedEx Kinko's corporate document solutions center. Served as primary point of contact for key accounts, overseeing production schedules, quality control, and custom deliveries.",
+                        achievements: [
+                            "Managed key client projects with consistent on-time delivery",
+                            "Led operational initiatives to improve production efficiency",
+                            "Drove service delivery improvements to increase repeat business",
+                            "Implemented client onboarding process to reduce errors and improve satisfaction scores"
+                        ]
+                    }
+                ],
+                x: 0,
+                y: 150
+            }
+        ];
+
+        // Initialize SVG
+        const svg = document.querySelector('.timeline-svg');
+        
+        // Create path
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("class", "path");
+        
+        let pathData = `M ${careerData[0].x} ${careerData[0].y}`;
+        for (let i = 1; i < careerData.length; i++) {
+            const curr = careerData[i];
+            pathData += ` L ${curr.x} ${curr.y}`;
+        }
+        path.setAttribute("d", pathData);
+        svg.appendChild(path);
+
+        // Create company nodes with logos
+        careerData.forEach((company, index) => {
+            const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+            group.setAttribute("transform", `translate(${company.x},${company.y})`);
+            
+            // Create interactive node group
+            const nodeGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+            nodeGroup.setAttribute("class", "node-group");
+            
+            // Create big circle first
+            const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            circle.setAttribute("class", "company-node");
+            circle.setAttribute("r", "65"); // BIG circle
+            
+            // Create logo inside circle
+            const image = document.createElementNS("http://www.w3.org/2000/svg", "image");
+            image.setAttribute("class", "company-logo");
+            image.setAttribute("href", company.logo);
+            image.setAttribute("x", -45); // Adjusted for smaller logo
+            image.setAttribute("y", -45); // Adjusted for smaller logo
+            image.setAttribute("width", "90"); // Slightly smaller to prevent cutting off circle
+            image.setAttribute("height", "90"); // Slightly smaller to prevent cutting off circle
+            
+            // Add error handling for logo loading
+            image.addEventListener('error', () => {
+                console.log(`Failed to load logo for ${company.company}`);
+                const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                text.setAttribute("class", "company-logo-text");
+                text.setAttribute("text-anchor", "middle");
+                text.setAttribute("dominant-baseline", "middle");
+                text.setAttribute("font-size", "28"); // Larger font
+                text.textContent = company.company.charAt(0);
+                nodeGroup.appendChild(text);
+                image.remove();
+            });
+            
+            // Add in correct order: first circle (background), then image (foreground)
+            nodeGroup.appendChild(circle);
+            nodeGroup.appendChild(image);
+            
+            // Show info on hover instead of click
+            nodeGroup.addEventListener('mouseenter', () => showCompanyInfo(company));
+            nodeGroup.addEventListener('mouseleave', hideInfoPanel);
+            
+            // Add the interactive node group to the position group
+            group.appendChild(nodeGroup);
+            svg.appendChild(group);
+        });
+
+        // Show company info
+        function showCompanyInfo(company) {
+            const infoPanel = document.querySelector('.info-panel');
+            const companyInfo = document.querySelector('.company-info');
+            const rolesContainer = document.createElement('div');
+            rolesContainer.className = `roles-container${company.roles.length > 1 ? ' multiple-roles' : ''}`;
+            
+            companyInfo.innerHTML = `
+                <h3>${company.company}</h3>
+            `;
+            
+            rolesContainer.innerHTML = company.roles.map(role => `
+                <div class="role">
+                    <h4>${role.title}</h4>
+                    <p class="period">${role.period}</p>
+                    <p>${role.description}</p>
+                    <ul>
+                        ${role.achievements.map(achievement => 
+                            `<li>${achievement}</li>`
+                        ).join('')}
+                    </ul>
+                </div>
+            `).join('');
+            
+            companyInfo.appendChild(rolesContainer);
+            infoPanel.classList.add('visible');
+        }
+
+        // Hide info panel
+        function hideInfoPanel() {
+            const infoPanel = document.querySelector('.info-panel');
+            infoPanel.classList.remove('visible');
+        }
+    </script>
+</body>
+</html>
