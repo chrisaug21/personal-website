@@ -1,3 +1,13 @@
+:root {
+    --background-color: white;
+    --color: #333;
+}
+
+html, body {
+    background-color: white !important;
+    color: #333 !important;
+}
+
 /* Reset and base styles */
 * {
     margin: 0;
