@@ -42,4 +42,32 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check scroll position on page load and scroll
     checkScroll();
     window.addEventListener('scroll', checkScroll);
+    
+    // Handle mobile menu - in case the components.js script doesn't load correctly
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const mobileMenuClose = document.querySelector('.mobile-menu-close');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    if (mobileMenuButton && mobileMenuClose && mobileMenu) {
+        // Open mobile menu
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.add('open');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+        });
+        
+        // Close mobile menu
+        mobileMenuClose.addEventListener('click', function() {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = ''; // Re-enable scrolling
+        });
+        
+        // Close menu when clicking a mobile navigation link
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = ''; // Re-enable scrolling
+            });
+        });
+    }
 });
