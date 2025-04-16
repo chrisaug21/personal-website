@@ -4,12 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Career Journey | Chris Augustine</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
         [data-theme="light"],
         :root:not([data-theme="dark"]) {
             --background-color: #fff;
             --color: #333;
+        }
+        
+        /* Pico CSS replacements */
+        p {
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
+        }
+        
+        ul, ol {
+            padding-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+            list-style-position: outside;
+        }
+        
+        input, button, select, textarea {
+            font-family: inherit;
+            font-size: inherit;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
         }
 
         /* Add a class for the journey content instead */
@@ -97,65 +126,168 @@
             visibility: visible;
         }
 
-        .info-panel h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: #0077cc;
+        /* NEW: Dedicated info panel area */
+        .info-panel-container {
+            background-color: #f5f5f5;
+            min-height: 450px;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease;
         }
-
-        .info-panel h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.3rem;
+        
+        .info-panel-container.has-content {
+            background-color: #f9f9f9;
+        }
+        
+        .info-panel-container .placeholder-text {
+            color: #999;
+            font-style: italic;
+            text-align: center;
+        }
+        
+        .info-panel-container .info-panel {
+            position: relative;
+            order: 0;
+            width: 100%;
+            box-shadow: none;
+            padding: 1rem 1.5rem;
+            background: transparent;
+        }
+        
+        /* NEW: Clear selection button */
+        .timeline-controls {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1rem;
+            padding-right: 50px;
+        }
+        
+        .clear-selection-btn {
+            background-color: #f1f1f1;
+            color: #666;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .clear-selection-btn:hover {
+            background-color: #e9e9e9;
             color: #333;
         }
-
-        .roles-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin: 0;
+        
+        .clear-selection-btn i {
+            font-size: 0.8rem;
+        }
+        
+        /* NEW: Selected node styling */
+        .node-group.selected {
+            transform: translateY(-32px);
+        }
+        
+        .node-group.selected .company-node {
+            stroke-width: 7;
+            stroke: #005fa3;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
         }
 
-        .roles-container:not(.multiple-roles) {
-            max-width: 800px;
-            margin: 0;
+        /* ENHANCED: Info panel sections */
+        .company-info-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
-
-        .role {
-            margin-bottom: 0;
-            padding: 0.6rem;
-            border: 1px solid #eee;
-            border-radius: 4px;
-            background: #f9f9f9;
+        
+        .company-info-header .company-logo-container {
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border-radius: 50%;
+            padding: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
-        .role p {
-            font-size: 1rem;
-            line-height: 1.3;
-            margin-bottom: 0.4rem;
+        
+        .company-info-header .company-logo-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
-
-        .role ul {
-            font-size: 1rem;
-            line-height: 1.3;
-            margin-left: 1.2rem;
-            margin-bottom: 0;
-            margin-top: 0.2rem;
+        
+        .company-info-header .company-title {
+            flex-grow: 1;
         }
-
-        .role li {
-            margin-bottom: 0.25rem;
+        
+        .company-info-header .company-title h3 {
+            margin-bottom: 0.3rem;
+            font-size: 1.6rem;
         }
-
-        .period {
-            color: #666;
-            font-style: italic;
+        
+        .company-description {
+            background-color: white;
+            padding: 1.25rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: #0077cc;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .info-section h4 i {
             font-size: 0.9rem;
-            margin-bottom: 0.4rem;
         }
-
-        /* Update the node positioning */
-        /* Removed non-standard CSS attribute setters (r, x, y, etc.) */
+        
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        
+        .product-card {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 3px solid #0077cc;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        
+        .product-card h5 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .product-card p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            line-height: 1.4;
+        }
 
         @media (max-width: 768px) {
             .journey-map {
@@ -172,8 +304,27 @@
             .roles-container {
                 grid-template-columns: 1fr;
             }
-
-            /* Removed all CSS rules related to r, x, y, width, height for node/logo elements */
+            
+            /* NEW: Mobile responsiveness for new elements */
+            .info-panel-container {
+                min-height: 600px;
+                padding: 1rem;
+            }
+            
+            .company-info-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .product-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-controls {
+                padding-right: 20px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -200,10 +351,20 @@
             
             <p class="lead" style="margin: 0 0 1rem 0;">Along the way, I've discovered what really drives me: building teams that get stuff done. I love empowering product managers and engineers to solve real problems with technology that actually changes how people live and work. The most rewarding moments? When our cross-functional teams create solutions that blow away customer expectations. Sure, I could have specialized in one industry, but the toolkit I've built by tackling diverse challenges has proven far more valuable. My career isn't defined by any single domain—it's about rolling up my sleeves, bringing passionate people together, and turning complex problems into impactful solutions.</p>
             
+            <!-- NEW: Added timeline controls -->
+            <div class="timeline-controls">
+                <button class="clear-selection-btn"><i class="fas fa-times"></i> Clear Selection</button>
+            </div>
+            
             <div class="journey-map">
                 <svg class="timeline-svg" viewBox="-100 -100 2200 400" preserveAspectRatio="xMidYMid meet">
                     <!-- Path and nodes will be generated by JavaScript -->
                 </svg>
+            </div>
+            
+            <!-- NEW: Dedicated info panel container -->
+            <div class="info-panel-container">
+                <div class="placeholder-text">Click on a company circle to view details</div>
                 <div class="info-panel">
                     <div class="company-info">
                         <!-- Content will be populated by JavaScript -->
@@ -224,6 +385,13 @@
                 company: "Wistia",
                 website: "https://wistia.com",
                 logo: "https://logo.clearbit.com/wistia.com",
+                description: "A video software company that provides video hosting, marketing, and analytics tools for businesses.",
+                products: [
+                    {
+                        name: "Create Suite",
+                        description: "A collection of tools including screen recording, video editing software, and webinar hosting capabilities for businesses to create professional video content."
+                    }
+                ],
                 roles: [
                     {
                         title: "Group Product Manager",
@@ -244,6 +412,13 @@
                 company: "Robin",
                 website: "https://robinpowered.com",
                 logo: "https://logo.clearbit.com/robinpowered.com",
+                description: "A workplace management platform that helps companies optimize their office space and enhance employee experience through desk booking and meeting room scheduling.",
+                products: [
+                    {
+                        name: "Visitor Management",
+                        description: "A digital check-in system for office guests that streamlines the visitor experience and enhances security."
+                    }
+                ],
                 roles: [
                     {
                         title: "Director of Product Management",
@@ -275,6 +450,13 @@
                 company: "ZoomInfo",
                 website: "https://zoominfo.com",
                 logo: "https://logo.clearbit.com/zoominfo.com",
+                description: "A leading B2B database and SaaS company that provides information about businesses and professionals to sales, marketing, and recruiting teams.",
+                products: [
+                    {
+                        name: "ZoomInfo Recruiter",
+                        description: "A talent acquisition platform providing recruiters with access to candidate information, contact details, and employment history."
+                    }
+                ],
                 roles: [
                     {
                         title: "Director of Product Management",
@@ -295,6 +477,13 @@
                 company: "Toast Inc.",
                 website: "https://pos.toasttab.com",
                 logo: "https://logo.clearbit.com/toasttab.com",
+                description: "A cloud-based restaurant management software company offering point of sale, online ordering, and delivery solutions for restaurants.",
+                products: [
+                    {
+                        name: "Hotel POS & Partner API",
+                        description: "Point-of-sale system specifically designed for hotel restaurants with integration capabilities for property management systems."
+                    }
+                ],
                 roles: [
                     {
                         title: "Director of Product Management",
@@ -315,6 +504,29 @@
                 company: "Virgin Pulse (2nd Stint)",
                 website: "https://virginpulse.com",
                 logo: "./images/vplogo.png",
+                description: "A leading global provider of digital health and wellbeing solutions that help organizations improve employee health, engagement, and productivity.",
+                products: [
+                    {
+                        name: "\"Ignite\" Product Launch",
+                        description: "A streamlined version of the Virgin Pulse platform designed for small to mid-sized businesses."
+                    },
+                    {
+                        name: "Employee Survey Platform",
+                        description: "Tools for gathering and analyzing employee feedback on workplace satisfaction and wellbeing."
+                    },
+                    {
+                        name: "Employer-sponsored Rewards & Incentives Module",
+                        description: "Customizable recognition and rewards system for encouraging healthy behaviors."
+                    },
+                    {
+                        name: "Global Activity Challenges",
+                        description: "Worldwide employee competitions designed to increase physical activity and team building."
+                    },
+                    {
+                        name: "Healthy Behavior Change Module",
+                        description: "Science-backed digital coaching tools to help employees develop sustainable healthy habits."
+                    }
+                ],
                 roles: [
                     {
                         title: "Director of Product Management",
@@ -346,6 +558,17 @@
                 company: "Zipcar",
                 website: "https://zipcar.com",
                 logo: "https://logo.clearbit.com/zipcar.com",
+                description: "A car-sharing company providing automobile reservations to its members, billable by the hour or day, serving urban areas and college campuses.",
+                products: [
+                    {
+                        name: "Electric Vehicle Program",
+                        description: "Initiative to incorporate electric vehicles into Zipcar's fleet, including charging infrastructure and member education."
+                    },
+                    {
+                        name: "Security and Anti-Fraud Initiatives",
+                        description: "Systems to prevent unauthorized vehicle access and improve overall security measures."
+                    }
+                ],
                 roles: [
                     {
                         title: "Product Manager",
@@ -366,6 +589,17 @@
                 company: "Virgin Pulse (1st Stint)",
                 website: "https://virginpulse.com",
                 logo: "./images/vplogo.png",
+                description: "A leading global provider of digital health and wellbeing solutions that help organizations improve employee health, engagement, and productivity.",
+                products: [
+                    {
+                        name: "Core Virgin Pulse Health & Wellness Platform",
+                        description: "An employee wellbeing platform featuring personalized health content, activity tracking, and behavior change programs."
+                    },
+                    {
+                        name: "Social Activity Challenges",
+                        description: "Team-based fitness competitions and challenges to drive employee engagement and promote healthy habits."
+                    }
+                ],
                 roles: [
                     {
                         title: "Product Manager",
@@ -397,6 +631,8 @@
                 company: "CVS Caremark",
                 website: "https://www.caremark.com",
                 logo: "https://logo.clearbit.com/cvshealth.com",
+                description: "A healthcare company that owns CVS Pharmacy, a retail pharmacy chain, as well as CVS Caremark, a pharmacy benefits manager, and health insurance provider Aetna.",
+                products: [],
                 roles: [
                     {
                         title: "Marketing Manager",
@@ -417,6 +653,8 @@
                 company: "Stonehill College",
                 website: "https://www.stonehill.edu",
                 logo: "https://logo.clearbit.com/stonehill.edu",
+                description: "A private Catholic college in Easton, Massachusetts offering undergraduate and graduate degree programs with a focus on liberal arts education.",
+                products: [],
                 roles: [
                     {
                         title: "Senior Marketing Manager",
@@ -437,6 +675,8 @@
                 company: "Marketing Resources",
                 website: "https://mriglobal.com",
                 logo: "./images/mrilogo.jpg",
+                description: "A marketing promotions agency offering services including sweepstakes execution, prize fulfillment, and promotional marketing for major consumer brands.",
+                products: [],
                 roles: [
                     {
                         title: "Project Manager",
@@ -457,6 +697,8 @@
                 company: "FedEx Kinko's",
                 website: "https://www.fedex.com/en-us/office.html",
                 logo: "https://logo.clearbit.com/fedex.com",
+                description: "A retail chain offering printing, copying, and business services to individuals and businesses. Part of FedEx Corporation providing document solutions and office services.",
+                products: [],
                 roles: [
                     {
                         title: "Project Manager",
@@ -490,6 +732,16 @@
         path.setAttribute("d", pathData);
         svg.appendChild(path);
 
+        // Variable to track currently selected node
+        let selectedNode = null;
+        
+        // References to DOM elements
+        const infoPanel = document.querySelector('.info-panel');
+        const companyInfo = document.querySelector('.company-info');
+        const infoPanelContainer = document.querySelector('.info-panel-container');
+        const placeholderText = document.querySelector('.placeholder-text');
+        const clearSelectionBtn = document.querySelector('.clear-selection-btn');
+
         // Create company nodes with logos
         careerData.forEach((company, index) => {
             const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
@@ -498,6 +750,7 @@
             // Create interactive node group
             const nodeGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
             nodeGroup.setAttribute("class", "node-group");
+            nodeGroup.setAttribute("data-company", company.company);
             
             // Create big circle first
             const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
@@ -530,46 +783,130 @@
             nodeGroup.appendChild(circle);
             nodeGroup.appendChild(image);
             
-            // Show info on hover instead of click
-            nodeGroup.addEventListener('mouseenter', () => showCompanyInfo(company));
-            nodeGroup.addEventListener('mouseleave', hideInfoPanel);
+            // UPDATED: Mouse events for nodes
+            nodeGroup.addEventListener('mouseenter', () => {
+                if (!selectedNode) {
+                    showCompanyInfo(company);
+                }
+            });
+            
+            nodeGroup.addEventListener('mouseleave', () => {
+                if (!selectedNode) {
+                    hideInfoPanel();
+                }
+            });
+            
+            // NEW: Click event for persistent selection
+            nodeGroup.addEventListener('click', (event) => {
+                event.stopPropagation();
+                
+                // If this node is already selected, deselect it
+                if (selectedNode === nodeGroup) {
+                    deselectNode();
+                    return;
+                }
+                
+                // Deselect previous node if any
+                if (selectedNode) {
+                    selectedNode.classList.remove('selected');
+                }
+                
+                // Select this node
+                selectedNode = nodeGroup;
+                nodeGroup.classList.add('selected');
+                
+                // Show company info and update container
+                showCompanyInfo(company);
+                infoPanelContainer.classList.add('has-content');
+                placeholderText.style.display = 'none';
+            });
             
             // Add the interactive node group to the position group
             group.appendChild(nodeGroup);
             svg.appendChild(group);
         });
+        
+        // NEW: Clear selection functionality
+        clearSelectionBtn.addEventListener('click', deselectNode);
+        
+        function deselectNode() {
+            if (selectedNode) {
+                selectedNode.classList.remove('selected');
+                selectedNode = null;
+                hideInfoPanel();
+                infoPanelContainer.classList.remove('has-content');
+                placeholderText.style.display = 'block';
+            }
+        }
 
-        // Show company info
+        // UPDATED: Show company info
         function showCompanyInfo(company) {
-            const infoPanel = document.querySelector('.info-panel');
-            const companyInfo = document.querySelector('.company-info');
-            const rolesContainer = document.createElement('div');
-            rolesContainer.className = `roles-container${company.roles.length > 1 ? ' multiple-roles' : ''}`;
+            const hasProductRoles = company.products && company.products.length > 0;
             
-            companyInfo.innerHTML = `
-                <h3>${company.company}</h3>
+            // Enhanced info panel structure
+            let companyInfoHTML = `
+                <div class="company-info-header">
+                    <div class="company-logo-container">
+                        <img src="${company.logo}" alt="${company.company} logo" onerror="this.src='https://via.placeholder.com/80?text=${company.company.charAt(0)}'; this.onerror=null;">
+                    </div>
+                    <div class="company-title">
+                        <h3>${company.company}</h3>
+                        <p><a href="${company.website}" target="_blank">${company.website.replace('https://', '')}</a></p>
+                    </div>
+                </div>
             `;
             
-            rolesContainer.innerHTML = company.roles.map(role => `
-                <div class="role">
-                    <h4>${role.title}</h4>
-                    <p class="period">${role.period}</p>
-                    <p>${role.description}</p>
-                    <ul>
-                        ${role.achievements.map(achievement => 
-                            `<li>${achievement}</li>`
-                        ).join('')}
-                    </ul>
+            // Company description section
+            companyInfoHTML += `
+                <div class="company-description">
+                    <p>${company.description}</p>
                 </div>
-            `).join('');
+            `;
             
-            companyInfo.appendChild(rolesContainer);
+            // Roles section
+            companyInfoHTML += `
+                <div class="info-section">
+                    <h4><i class="fas fa-briefcase"></i> Roles & Responsibilities</h4>
+                    <div class="roles-container${company.roles.length > 1 ? ' multiple-roles' : ''}">
+                        ${company.roles.map(role => `
+                            <div class="role">
+                                <h4>${role.title}</h4>
+                                <p class="period">${role.period}</p>
+                                <p>${role.description}</p>
+                                <ul>
+                                    ${role.achievements.map(achievement => 
+                                        `<li>${achievement}</li>`
+                                    ).join('')}
+                                </ul>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            
+            // Products section (only if company has products)
+            if (hasProductRoles) {
+                companyInfoHTML += `
+                    <div class="info-section">
+                        <h4><i class="fas fa-cube"></i> Products Worked On</h4>
+                        <div class="product-list">
+                            ${company.products.map(product => `
+                                <div class="product-card">
+                                    <h5>${product.name}</h5>
+                                    <p>${product.description}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            companyInfo.innerHTML = companyInfoHTML;
             infoPanel.classList.add('visible');
         }
 
         // Hide info panel
         function hideInfoPanel() {
-            const infoPanel = document.querySelector('.info-panel');
             infoPanel.classList.remove('visible');
         }
     </script>

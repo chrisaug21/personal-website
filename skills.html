@@ -4,325 +4,657 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skills | Chris Augustine</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        [data-theme="light"],
-        :root:not([data-theme="dark"]) {
-            --background-color: #fff;
-            --color: #333;
-        }
-
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .skill-category {
-            background-color: #f5f5f5;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid #0077cc;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        /* Basic Reset (replacement for Pico reset) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        /* General typography */
+        body {
+            line-height: 1.6; /* Improve readability */
+            font-family: 'Lato', sans-serif; /* Set base font */
+            color: var(--color);
+            background-color: var(--background-color);
+            font-size: 1rem; /* Explicit base font size */
         }
 
-        .skill-category h2 {
+        /* Base paragraph styling */
+        p {
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
+        }
+
+        /* Links */
+        a {
             color: #0077cc;
-            margin-bottom: 1rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 0.5rem;
+            text-decoration: none;
         }
         
-        .skill-category h2 .icon {
-            font-size: 2.5rem;
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Make sure form elements inherit font */
+        input, button, select, textarea {
+            font-family: inherit;
+            font-size: inherit;
+        }
+
+        /* Lists */
+        ul, ol {
+            padding-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
             margin-bottom: 0.5rem;
         }
 
+        [data-theme="light"],
+        :root:not([data-theme="dark"]) {
+            --background-color: #f8f9fa; /* Lighter background */
+            --color: #343a40; /* Darker text */
+            --h2-color: #0077cc;
+            --card-bg: #f9f9f9; /* Light grey card background */
+            --card-border: #e9ecef;
+            --tag-bg: rgba(0, 119, 204, 0.1); /* Tag Background */
+            --tag-color: #0077cc;
+            --tag-border-color: rgba(0, 119, 204, 0.4); /* Slightly less transparent border */
+            --subcategory-color: #495057;
+            --section-border-color: #dee2e6; /* Slightly darker border for sections */
+            --tooltip-bg: #ffffff;
+            --tooltip-color: #343a40;
+        }
+        /* Add dark theme variables if needed */
+
+        /* Container Replacement Style */
+        .container {
+            width: 100%;
+            max-width: 1140px; /* Common container width, adjust if needed */
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem; /* Add horizontal padding */
+            padding-right: 1rem;
+        }
+
+        main {
+            padding-top: 2rem;
+            padding-bottom: 4rem; /* Increased bottom padding */
+        }
+
+        /* Ensure headings inherit Nunito as desired */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Nunito', sans-serif;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: none !important; /* Remove Pico underline */
+            padding-bottom: 0 !important; /* Remove Pico padding */
+            font-weight: 700; /* Apply consistent weight */
+            font-size: 2.2rem; /* Set consistent size for all h1 elements */
+            margin-top: 1rem;
+            margin-bottom: 1rem; /* Ensure consistent H1 bottom margin */
+        }
+        /* Specific styling for main page H1 if needed, otherwise uses base H1 */
+        h1:first-of-type { /* This targets Industry H1 */
+            /* margin-bottom: 1rem;  Already set in base H1 rule */
+        }
+        /* This H1 targets the "Professional Skills" H1 */
+        .container > section > h1:nth-of-type(2) {
+            /* margin-bottom: 1rem; Already set in base H1 rule */
+        }
+
+        /* Styling for subsequent H1s (section headers) */
+        .industry-section h1,
+        .tooling-section h1 {
+             margin-bottom: 1rem;
+             /* Removed font-size: 2rem to ensure consistent h1 sizing */
+        }
+
+        .lead {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1rem; /* Add standard font size to match other pages */
+        }
+
+        /* Skills Grid */
+        .skills-container {
+            display: grid;
+            /* Responsive grid: 1 col mobile, 2 medium/large */
+            grid-template-columns: 1fr; /* Default 1 column */
+            gap: 25px; /* Adjusted Spacing between cards */
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) { /* Medium screens and up */
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Removed the 1024px breakpoint for 3 columns */
+
+        /* Skill Card Styling (Shared by skills and tooling) */
+        .skill-category,
+        .tooling-card {
+            background-color: var(--card-bg);
+            padding: 25px; /* Comfortable padding */
+            border-radius: 8px; /* Rounded corners */
+            border: 1px solid var(--card-border); /* Subtle border */
+            display: flex; /* Needed for equal height in grid rows */
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .skill-category:hover,
+        .tooling-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Styling specific to skill category cards */
+        .skill-category h2 {
+            color: var(--h2-color);
+            font-size: 24px; /* Prominent heading */
+            margin-bottom: 1.5rem; /* Space below heading */
+            display: flex; /* Align icon and text */
+            align-items: center;
+            gap: 0.75rem; /* Space between icon and text */
+            font-family: 'Nunito', sans-serif; /* Distinct font */
+            font-weight: 800;
+            text-align: left; /* Left align */
+            border-bottom: none !important; /* Remove Pico underline for H2 inside cards */
+            padding-bottom: 0 !important; /* Remove Pico padding */
+        }
+
+        .skill-category h2 .icon {
+            font-size: 1.8rem; /* Slightly smaller icon */
+            line-height: 1; /* Prevent extra space from line height */
+            width: 30px; /* Fixed width for alignment */
+            text-align: center;
+        }
+
         .skill-category ul {
-            list-style-type: none;
-            padding-left: 0;
+            list-style-type: none !important; /* Ensure no bullets */
+            padding-left: 0 !important;
             margin-left: 0;
+            margin-top: 0;
+            margin-bottom: 0; /* Remove default ul margin */
+            flex-grow: 1; /* Allows cards to grow equally if needed */
         }
 
         .skill-category li {
-            margin-bottom: 0.75rem;
-            padding-left: 0;
-            position: relative;
-            list-style: none;
+            margin-bottom: 1.5rem; /* More space between subcategories */
+            padding-left: 0 !important; /* Ensure no padding for bullets */
+            list-style: none !important; /* Ensure no bullets */
+        }
+        .skill-category li:last-child {
+             margin-bottom: 0; /* Remove margin from last item */
+        }
+        /* Ensure no pseudo-elements for list items */
+        .skill-category li::before { content: none !important; }
+
+        /* Subcategory Heading */
+        .skill-subcategory-heading {
             display: block;
+            color: var(--subcategory-color); /* Darker gray */
+            font-weight: 700; /* Medium weight */
+            font-size: 1.1rem; /* Slightly smaller */
+            margin-bottom: 0.6rem; /* Space below subcategory */
+            text-align: left; /* Left align */
+            font-family: 'Lato', sans-serif;
+            list-style: none !important; /* Explicitly remove list style */
         }
 
-        .skill-category li::before {
-            content: none;
-            display: none;
+        /* Skill Tags / Pills */
+        .skill-tags-container {
+            margin-top: 0.5rem;
         }
-        
-        .skill-name {
-            display: block;
-            color: #0077cc;
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 0.4rem;
-            border-bottom: 1px solid #e0e0e0;
-            padding-bottom: 0.3rem;
-        }
-        
+
         .skill-tag {
             display: inline-block;
-            background-color: rgba(0, 119, 204, 0.1);
-            color: #0077cc;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            margin-top: 0.3rem;
-            margin-right: 0.3rem;
+            background-color: var(--tag-bg);
+            color: var(--tag-color);
+            padding: 0.3rem 0.7rem; /* Adjusted padding */
+            border-radius: 12px; /* Pill shape */
+            font-size: 0.85rem; /* Slightly smaller */
+            font-weight: 500;
+            margin-top: 0.4rem;
+            margin-right: 0.4rem;
+            line-height: 1.4;
+            border: 1px solid var(--tag-border-color); /* Use variable for solid border */
+            transition: transform 0.2s ease; /* Add transition for hover */
+            position: relative; /* Needed for tooltip positioning */
+            cursor: help;
         }
+
+        .skill-tag:hover {
+            transform: scale(1.05); /* Slight scale effect on hover */
+        }
+
+        /* Custom Tooltip Styling */
+        .skill-tag[data-tooltip]::before, /* Tooltip bubble */
+        .skill-tag[data-tooltip]::after { /* Tooltip pointer */
+            position: absolute;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, transform 0.2s ease-in-out;
+            z-index: 10;
+            pointer-events: none; /* Allow hover on tag */
+        }
+
+        .skill-tag[data-tooltip]::before {
+            content: attr(data-tooltip);
+            background-color: var(--tooltip-bg);
+            color: var(--tooltip-color);
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            width: max-content; /* Adjust width to content */
+            max-width: 250px; /* Prevent overly wide tooltips */
+            white-space: normal; /* Allow text wrapping */
+            /* Positioning */
+            bottom: 100%; /* Position above the tag */
+            left: 50%;
+            transform: translateX(-50%); /* Center horizontally */
+            margin-bottom: 8px; /* Space between tag and tooltip */
+        }
+
+        .skill-tag[data-tooltip]::after {
+            content: '';
+            border: 5px solid transparent;
+            border-top-color: var(--tooltip-bg);
+            /* Positioning */
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: -2px; /* Overlap slightly with bubble */
+        }
+
+        .skill-tag[data-tooltip]:hover::before,
+        .skill-tag[data-tooltip]:hover::after {
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(-50%) translateY(-5px); /* Slight lift effect */
+        }
+
+        /* Section Dividers and Styling */
+        .tooling-section {
+             margin-top: 4rem; /* Increased margin */
+             text-align: center;
+             border-top: 2px solid var(--section-border-color); /* Thicker border */
+             padding-top: 3rem; /* Increased padding */
+        }
+        .industry-section {
+             margin-bottom: 0; /* Reset margin */
+             padding-bottom: 0; /* Reset padding */
+             border-top: none; /* Remove top border as it's first */
+             margin-top: 0; /* Remove top margin as it's first */
+             padding-top: 0; /* Remove top padding as it's first */
+             margin-bottom: 3rem; /* Add margin below for spacing */
+        }
+
+        .tooling-section p,
+        .industry-section p {
+            margin-bottom: 2rem; /* More space below paragraph */
+            color: var(--color);
+            opacity: 0.9;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1rem; /* Add standard font size to match other pages */
+        }
+
+        /* Container for Tooling Cards */
+        .tooling-cards-container {
+            display: grid;
+            grid-template-columns: 1fr; /* 1 column mobile */
+            gap: 20px;
+            margin-top: 2rem;
+            text-align: left; /* Reset text align for cards */
+        }
+
+        @media (min-width: 768px) { /* 2 columns medium and up */
+            .tooling-cards-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Styling for Tooling Cards */
+        .tooling-card h4 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            color: var(--h2-color); /* Use heading color */
+            font-size: 1.3rem; /* Slightly larger than subcategory */
+            margin-bottom: 1rem;
+            /* border-bottom: 1px solid var(--card-border); Removed border */
+            padding-bottom: 0; /* Remove padding from removed border */
+            display: flex; /* Align emoji */
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .tooling-card .tags-flex-container { /* Use flex for tags inside tooling cards */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem; /* Slightly smaller gap for tags */
+            justify-content: flex-start; /* Align tags left */
+            margin-top: 0.5rem; /* Add some space below heading */
+        }
+        .tooling-card .skill-tag {
+            font-size: 0.9rem; /* Consistent tag size */
+            padding: 0.4rem 0.8rem;
+        }
+
+        /* Industry Tags Container */
+        .industry-tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem; /* Consistent gap */
+            margin-top: 1.5rem;
+            background-color: var(--card-bg); /* Add grey background */
+            padding: 25px; /* Add padding similar to other cards */
+            border-radius: 8px; /* Rounded corners */
+            border: 1px solid var(--card-border); /* Subtle border */
+        }
+
+        /* Specific styling for Industry tags - Increased Specificity */
+        main.container section .industry-section .industry-tags-container > .skill-tag {
+            font-size: 0.95rem; /* Slightly larger for emphasis */
+            padding: 0.5rem 1rem;
+            background-color: var(--tag-bg) !important; /* Ensure background matches other tags */
+            border-color: var(--tag-border-color) !important; /* Ensure border matches other tags, added !important */
+        }
+
+
     </style>
-    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
     <script src="components.js" defer></script>
 </head>
 <body data-theme="light">
     <div id="header-placeholder"></div>
 
-    <main>
+    <main class="container">
         <section>
-            <h1>Professional Skills</h1>
-            <p class="lead">A versatile product leader with expertise in building teams that solve real business problems with innovative technology solutions.</p>
-            
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h2><span class="icon">🧠</span><br>Product Strategy & Leadership</h2>
-                    <ul>
-                        <li>
-                            <span class="skill-name">Product Strategy</span>
-                            <div>
-                                <span class="skill-tag">Vision Creation</span>
-                                <span class="skill-tag">Market Analysis</span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">Product Roadmapping</span>
-                            <div>
-                                <span class="skill-tag">Prioritization</span>
-                                <span class="skill-tag">Outcome Planning</span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">Leadership</span>
-                            <div>
-                                <span class="skill-tag">Cross-Functional Collaboration</span>
-                                <span class="skill-tag">Strategic Decision Making</span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">Pragmatic Marketing Certified</span>
-                            <div>
-                                <span class="skill-tag">Product-Market Fit</span>
-                                <span class="skill-tag">Go-to-Market Strategy</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h2><span class="icon">👥</span><br>Team & People Management</h2>
-                    <ul>
-                        <li>
-                            <span class="skill-name">Managing & Mentoring</span>
-                            <div>
-                                <span class="skill-tag">Performance Reviews</span>
-                                <span class="skill-tag">Career Development</span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">Team Building</span>
-                            <div>
-                                <span class="skill-tag">Psychological Safety</span>
-                                <span class="skill-tag">Conflict Resolution</span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">Servant Leadership</span>
-                            <div>
-                                <span class="skill-tag">Empowering Teams</span>
-                                <span class="skill-tag">Removing Obstacles</span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">Organizational Design</span>
-                            <div>
-                                <span class="skill-tag">Scaling Teams</span>
-                                <span class="skill-tag">Role Definition</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h2><span class="icon">🔄</span><br>Agile & Product Processes</h2>
-                    <ul>
-                        <li>
-                            <span class="skill-name">Scrum Product Owner</span>
-                            <div>
-                                <span class="skill-tag">Backlog Management</span>
-                                <span class="skill-tag">Sprint Planning</span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">Agile Development</span>
-                            <div>
-                                <span class="skill-tag">Iterative Delivery</span>
-                                <span class="skill-tag">Continuous Improvement</span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">User Stories</span>
-                            <div>
-                                <span class="skill-tag">Requirements Definition</span>
-                                <span class="skill-tag">Acceptance Criteria</span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">Product Discovery</span>
-                            <div>
-                                <span class="skill-tag">User Interviews</span>
-                                <span class="skill-tag">Problem Validation</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h2><span class="icon">👨‍💻</span><br>Technology & Product Types</h2>
-                    <ul>
-                        <li>
-                            <span class="skill-name">Software-as-a-Service</span>
-                            <div>
-                                <span class="skill-tag">Subscription Models</span>
-                                <span class="skill-tag">Multi-tenant Architecture</span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">Native Mobile Apps</span>
-                            <div>
-                                <span class="skill-tag">iOS</span>
-                                <span class="skill-tag">Android</span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">Application Security</span>
-                            <div>
-                                <span class="skill-tag">Threat Modeling</span>
-                                <span class="skill-tag">Security Reviews</span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">Video Creation Tools</span>
-                            <div>
-                                <span class="skill-tag">Recording</span>
-                                <span class="skill-tag">Editing</span>
-                                <span class="skill-tag">Webinars</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h2><span class="icon">💡</span><br>User Experience & Design</h2>
-                    <ul>
-                        <li>
-                            <span class="skill-name">User Experience (UX)</span>
-                            <div>
-                                <span class="skill-tag">Usability Testing</span>
-                                <span class="skill-tag">Journey Mapping</span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">Gamification</span>
-                            <div>
-                                <span class="skill-tag">Engagement Mechanics</span>
-                                <span class="skill-tag">Behavioral Design</span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">Design Thinking</span>
-                            <div>
-                                <span class="skill-tag">Prototyping</span>
-                                <span class="skill-tag">User-Centered Design</span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">Accessibility</span>
-                            <div>
-                                <span class="skill-tag">WCAG Guidelines</span>
-                                <span class="skill-tag">Inclusive Design</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h2><span class="icon">📊</span><br>Data & Performance</h2>
-                    <ul>
-                        <li>
-                            <span class="skill-name">Data & Analytics</span>
-                            <div>
-                                <span class="skill-tag">Product Metrics</span>
-                                <span class="skill-tag">Dashboards</span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">A/B Testing</span>
-                            <div>
-                                <span class="skill-tag">Hypothesis Formation</span>
-                                <span class="skill-tag">Statistical Analysis</span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">OKRs & KPIs</span>
-                            <div>
-                                <span class="skill-tag">Goal Setting</span>
-                                <span class="skill-tag">Performance Tracking</span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">ROI Analysis</span>
-                            <div>
-                                <span class="skill-tag">Cost-Benefit Analysis</span>
-                                <span class="skill-tag">Business Case Development</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div style="margin-top: 3rem; text-align: center;">
-                <h3>Industry Experience</h3>
+            <!-- Updated Industry Experience Section (Moved Up) -->
+            <div class="industry-section">
+                <h1>Industry Experience</h1>
                 <p>My diverse background spans multiple sectors, giving me versatile perspectives on product development.</p>
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 1.5rem;">
-                    <span class="skill-tag" style="font-size: 1.1rem; padding: 0.5rem 1rem;">🎥 Video Marketing</span>
-                    <span class="skill-tag" style="font-size: 1.1rem; padding: 0.5rem 1rem;">🏢 Workplace Technology</span>
-                    <span class="skill-tag" style="font-size: 1.1rem; padding: 0.5rem 1rem;">🚕 Transportation</span>
-                    <span class="skill-tag" style="font-size: 1.1rem; padding: 0.5rem 1rem;">🏥 Healthcare</span>
-                    <span class="skill-tag" style="font-size: 1.1rem; padding: 0.5rem 1rem;">🎓 Education</span>
-                    <span class="skill-tag" style="font-size: 1.1rem; padding: 0.5rem 1rem;">🖨️ Print Production</span>
+                <div class="industry-tags-container">
+                    <span class="skill-tag" data-tooltip="Building software platforms for video marketing creation, distribution, and analytics">🎥 Video Marketing</span>
+                    <span class="skill-tag" data-tooltip="Developing tools and platforms for enterprise collaboration and productivity">🏢 Workplace Technology</span>
+                    <span class="skill-tag" data-tooltip="Building software solutions for human resources management and employee experience">🧑‍💼 HR Tech</span>
+                    <span class="skill-tag" data-tooltip="Working on technology solutions within the healthcare provider and payer space">🏥 Healthcare</span>
+                    <span class="skill-tag" data-tooltip="Developing products focused on personal health, fitness, and well-being">⚕️ Health & Wellness</span>
+                    <span class="skill-tag" data-tooltip="Experience in the higher education sector, including branding, marketing, and student recruitment technology">🎓 Education</span>
+                    <span class="skill-tag" data-tooltip="Building Point-of-Sale systems and technology for the restaurant industry">🍔 POS / Restaurant Tech</span>
+                    <span class="skill-tag" data-tooltip="Developing technology solutions for transportation and logistics">🚕 Transportation</span>
                 </div>
             </div>
+
+            <h1>Professional Skills</h1>
+            <p class="lead">A versatile product leader with expertise building teams that solve real business problems with innovative technology solutions.</p>
+
+            <div class="skills-container">
+                <!-- Card 1: Product Strategy & Leadership -->
+                <div class="skill-category">
+                    <h2><span class="icon">🧠</span>Product Strategy & Leadership</h2>
+                    <ul>
+                        <li>
+                            <span class="skill-subcategory-heading">Product Strategy</span>
+                            <div class="skill-tags-container">
+                                <span class="skill-tag" data-tooltip="Defining the long-term vision and direction for a product">Vision Creation</span>
+                                <span class="skill-tag" data-tooltip="Analyzing market trends, competitors, and customer needs">Market Analysis</span>
+                                <span class="skill-tag" data-tooltip="Ensuring a product meets the needs of a target market">Product-Market Fit</span>
+                                <span class="skill-tag" data-tooltip="Planning and executing the launch of a product to market">Go-to-Market Strategy</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="skill-subcategory-heading">Product Roadmapping</span>
+                            <div class="skill-tags-container">
+                                <span class="skill-tag" data-tooltip="Using frameworks to decide what features to build next">Prioritization Frameworks</span>
+                                <span class="skill-tag" data-tooltip="Focusing roadmaps on achieving specific business outcomes">Outcome-Based Planning</span>
+                                <span class="skill-tag" data-tooltip="Aligning product plans with stakeholders across the company">Stakeholder Alignment</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="skill-subcategory-heading">Leadership</span>
+                            <div class="skill-tags-container">
+                                <span class="skill-tag" data-tooltip="Leading teams composed of members from different functions (Eng, Design, Marketing)">Cross-Functional Teams</span>
+                                <span class="skill-tag" data-tooltip="Making informed decisions based on data and strategic goals">Strategic Decision Making</span>
+                                <span class="skill-tag" data-tooltip="Guiding and supporting the growth of team members">Mentoring & Coaching</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="skill-subcategory-heading">Certification</span>
+                             <div class="skill-tags-container">
+                                <span class="skill-tag" data-tooltip="Certified in Pragmatic Marketing frameworks for product management and marketing">Pragmatic Marketing Certified</span>
+                             </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Team & People Management -->
+                <div class="skill-category">
+                    <h2><span class="icon">👥</span>Team & People Management</h2>
+                    <ul>
+                        <li>
+                            <span class="skill-subcategory-heading">Team Leadership</span>
+                            <div class="skill-tags-container">
+                                <span class="skill-tag" data-tooltip="Overseeing team performance and providing guidance">Managing & Mentoring</span>
+                                <span class="skill-tag" data-tooltip="Evaluating employee performance and setting goals">Performance Management</span>
+                                <span class="skill-tag" data-tooltip="Supporting individual career growth and development paths">Career Development</span>
+                                <span class="skill-tag" data-tooltip="Leading by focusing on the needs and growth of team members">Servant Leadership</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="skill-subcategory-heading">Team Building & Culture</span>
+                            <div class="skill-tags-container">
+                                <span class="skill-tag" data-tooltip="Recruiting, interviewing, and integrating new team members">Hiring & Onboarding</span>
+                                <span class="skill-tag" data-tooltip="Creating a safe environment for team members to take risks and speak up">Psychological Safety</span>
+                                <span class="skill-tag" data-tooltip="Addressing and resolving disagreements within the team">Conflict Resolution</span>
+                                <span class="skill-tag" data-tooltip="Giving teams autonomy and resources to succeed">Empowering Teams</span>
+                            </div>
+                        </li>
+                         <li>
+                            <span class="skill-subcategory-heading">Organizational Design</span>
+                            <div class="skill-tags-container">
+                                <span class="skill-tag" data-tooltip="Structuring teams effectively as the organization grows">Scaling Teams</span>
+                                <span class="skill-tag" data-tooltip="Defining clear roles and responsibilities within teams">Role Definition</span>
+                                <span class="skill-tag" data-tooltip="Identifying and implementing improvements to team processes">Process Improvement</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: Agile & Product Processes -->
+                <div class="skill-category">
+                    <h2><span class="icon">🔄</span>Agile & Product Processes</h2>
+                    <ul>
+                        <li>
+                            <span class="skill-subcategory-heading">Agile Methodologies</span>
+                            <div class="skill-tags-container">
+                                <span class="skill-tag" data-tooltip="Acting as the product representative in a Scrum team">Scrum Product Owner</span>
+                                <span class="skill-tag" data-tooltip="Using Kanban boards and principles for workflow management">Kanban</span>
+                                <span class="skill-tag" data-tooltip="Delivering product increments frequently and consistently">Iterative Delivery</span>
+                                <span class="skill-tag" data-tooltip="Regularly reflecting on and improving team processes">Continuous Improvement</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="skill-subcategory-heading">Product Discovery & Definition</span>
+                            <div class="skill-tags-container">
+                                <span class="skill-tag" data-tooltip="Conducting interviews with users to understand their needs and pain points">User Interviews</span>
+                                <span class="skill-tag" data-tooltip="Validating that a defined problem is real and worth solving">Problem Validation</span>
+                                <span class="skill-tag" data-tooltip="Visualizing user workflows and feature requirements">User Story Mapping</span>
+                                <span class="skill-tag" data-tooltip="Gathering and documenting product requirements">Requirements Gathering</span>
+                                <span class="skill-tag" data-tooltip="Defining the criteria for a user story to be considered complete">Acceptance Criteria</span>
+                            </div>
+                        </li>
+                         <li>
+                            <span class="skill-subcategory-heading">Lifecycle Management</span>
+                            <div class="skill-tags-container">
+                                <span class="skill-tag" data-tooltip="Managing and prioritizing the product backlog">Backlog Management</span>
+                                <span class="skill-tag" data-tooltip="Planning the work to be done in an upcoming sprint">Sprint Planning</span>
+                                <span class="skill-tag" data-tooltip="Coordinating the release of new product versions">Release Management</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card 4: Technology & Product Types -->
+                <div class="skill-category">
+                    <h2><span class="icon">👨‍💻</span>Technology & Product Types</h2>
+                    <ul>
+                        <li>
+                            <span class="skill-subcategory-heading">Software Platforms</span>
+                            <div class="skill-tags-container">
+                                <span class="skill-tag" data-tooltip="Building and managing cloud-based software delivered via subscription">Software-as-a-Service (SaaS)</span>
+                                <span class="skill-tag" data-tooltip="Designing systems serving multiple customers from a single instance">Multi-tenant Architecture</span>
+                                <span class="skill-tag" data-tooltip="Developing products based on recurring revenue models">Subscription Models</span>
+                                <span class="skill-tag" data-tooltip="Building and managing Application Programming Interfaces for integration">APIs & Integrations</span>
+                            </div>
+                        </li>
+                         <li>
+                            <span class="skill-subcategory-heading">Application Development</span>
+                            <div class="skill-tags-container">
+                                <span class="skill-tag" data-tooltip="Developing applications specifically for iOS and Android platforms">Native Mobile Apps (iOS/Android)</span>
+                                <span class="skill-tag" data-tooltip="Building applications accessed through web browsers">Web Applications</span>
+                                <span class="skill-tag" data-tooltip="Creating foundational platforms upon which other applications are built">Platform Development</span>
+                            </div>
+                        </li>
+                         <li>
+                            <span class="skill-subcategory-heading">Specialized Areas</span>
+                             <div class="skill-tags-container">
+                                <span class="skill-tag" data-tooltip="Incorporating security best practices into the product development lifecycle">Application Security</span>
+                                <span class="skill-tag" data-tooltip="Building tools for creating, editing, and sharing video content">Video Creation Tools</span>
+                                <span class="skill-tag" data-tooltip="Building platforms and tools targeted at software developers">Developer Platforms</span>
+                             </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card 5: User Experience & Design -->
+                <div class="skill-category">
+                    <h2><span class="icon">💡</span>User Experience & Design</h2>
+                    <ul>
+                        <li>
+                            <span class="skill-subcategory-heading">User-Centered Design</span>
+                            <div class="skill-tags-container">
+                                <span class="skill-tag" data-tooltip="Gathering insights about user behaviors, needs, and motivations">User Research</span>
+                                <span class="skill-tag" data-tooltip="Creating fictional representations of target users">Persona Development</span>
+                                <span class="skill-tag" data-tooltip="Mapping out the user's experience interacting with a product">Journey Mapping</span>
+                                <span class="skill-tag" data-tooltip="Testing product usability with real users">Usability Testing</span>
+                            </div>
+                        </li>
+                         <li>
+                            <span class="skill-subcategory-heading">Design Principles</span>
+                            <div class="skill-tags-container">
+                                <span class="skill-tag" data-tooltip="Applying a human-centered approach to problem-solving and innovation">Design Thinking</span>
+                                <span class="skill-tag" data-tooltip="Organizing and structuring content effectively">Information Architecture</span>
+                                <span class="skill-tag" data-tooltip="Designing the interaction between users and products">Interaction Design</span>
+                                <span class="skill-tag" data-tooltip="Creating preliminary versions of a product for testing and feedback">Prototyping</span>
+                            </div>
+                        </li>
+                         <li>
+                            <span class="skill-subcategory-heading">Engagement & Accessibility</span>
+                            <div class="skill-tags-container">
+                                <span class="skill-tag" data-tooltip="Incorporating game mechanics to increase user engagement">Gamification</span>
+                                <span class="skill-tag" data-tooltip="Applying psychology principles to influence user behavior">Behavioral Design</span>
+                                <span class="skill-tag" data-tooltip="Designing products usable by people with disabilities (following WCAG)">Accessibility (WCAG)</span>
+                                <span class="skill-tag" data-tooltip="Designing products to be usable by everyone, regardless of ability">Inclusive Design</span>
+                             </div>
+                        </li>
+                    </ul>
+                </div>
+
+                 <!-- Card 6: Data & Performance -->
+                <div class="skill-category">
+                    <h2><span class="icon">📊</span>Data & Performance</h2>
+                    <ul>
+                        <li>
+                            <span class="skill-subcategory-heading">Data Analysis & Metrics</span>
+                            <div class="skill-tags-container">
+                                <span class="skill-tag" data-tooltip="Tracking and analyzing user behavior and product performance">Product Analytics</span>
+                                <span class="skill-tag" data-tooltip="Presenting data clearly through charts and graphs">Data Visualization</span>
+                                <span class="skill-tag" data-tooltip="Creating dashboards to monitor key product metrics">Dashboard Creation</span>
+                                <span class="skill-tag" data-tooltip="Analyzing user progression through key steps or funnels">Funnel Analysis</span>
+                             </div>
+                        </li>
+                        <li>
+                            <span class="skill-subcategory-heading">Experimentation</span>
+                            <div class="skill-tags-container">
+                                <span class="skill-tag" data-tooltip="Running controlled experiments to compare variations (A vs B)">A/B Testing</span>
+                                <span class="skill-tag" data-tooltip="Formulating and testing hypotheses based on data">Hypothesis Testing</span>
+                                <span class="skill-tag" data-tooltip="Determining if experiment results are statistically meaningful">Statistical Significance</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="skill-subcategory-heading">Performance & Goal Setting</span>
+                            <div class="skill-tags-container">
+                                <span class="skill-tag" data-tooltip="Setting Objectives and Key Results (OKRs) and Key Performance Indicators (KPIs)">OKRs & KPIs</span>
+                                <span class="skill-tag" data-tooltip="Monitoring progress towards goals and objectives">Performance Tracking</span>
+                                <span class="skill-tag" data-tooltip="Analyzing the Return on Investment for product initiatives">ROI Analysis</span>
+                                <span class="skill-tag" data-tooltip="Developing justifications for product investments">Business Case Development</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tooling Section with Side-by-Side Cards -->
+            <div class="tooling-section">
+                <h1>Tooling Expertise</h1>
+                <p>Proficient with a range of tools essential for modern product development and AI integration.</p>
+                <div class="tooling-cards-container">
+                    <!-- AI Tooling Card -->
+                    <div class="tooling-card">
+                        <h4><span class="icon">🤖</span>AI Tooling</h4>
+                        <div class="tags-flex-container">
+                            <span class="skill-tag" data-tooltip="AI-powered code editor">Cursor</span>
+                            <span class="skill-tag" data-tooltip="Large language models by OpenAI">ChatGPT / GPT-4</span>
+                            <span class="skill-tag" data-tooltip="Large language models by Anthropic">Claude</span>
+                            <span class="skill-tag" data-tooltip="Online collaborative IDE">Replit</span>
+                            <span class="skill-tag" data-tooltip="Large language models by Google">Gemini</span>
+                            <span class="skill-tag" data-tooltip="AI-powered search engine">Perplexity</span>
+                        </div>
+                    </div>
+                    <!-- PM & Design Tooling Card -->
+                    <div class="tooling-card">
+                         <h4><span class="icon">🛠️</span>PM & Design Tooling</h4>
+                         <div class="tags-flex-container">
+                            <span class="skill-tag" data-tooltip="Agile project management and issue tracking">Jira</span>
+                            <span class="skill-tag" data-tooltip="Product management platform for roadmapping and feedback">ProductBoard</span>
+                            <span class="skill-tag" data-tooltip="Feedback collection and roadmap tool">Canny</span>
+                            <span class="skill-tag" data-tooltip="Collaborative interface design tool">Figma</span>
+                            <span class="skill-tag" data-tooltip="Online collaborative whiteboard platform">Miro</span>
+                            <span class="skill-tag" data-tooltip="Product analytics platform">Amplitude</span>
+                            <span class="skill-tag" data-tooltip="Business intelligence and data visualization platform">Looker</span>
+                            <span class="skill-tag" data-tooltip="Collaborative data science and analytics platform">Mode</span>
+                         </div>
+                    </div>
+                </div>
+            </div>
+
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 Chris Augustine. All rights reserved.</p>
-    </footer>
+    <div id="footer-placeholder"></div>
+
 </body>
 </html> 
