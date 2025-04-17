@@ -255,8 +255,8 @@
         }
         
         .company-info-header .company-logo-container img {
-            max-width: 100%;
-            max-height: 100%;
+            max-width: 90%;
+            max-height: 90%;
             object-fit: contain;
         }
         
@@ -288,8 +288,10 @@
             color: #0077cc;
             font-size: 1.15rem;
             margin-bottom: 0.75rem;
-            border-bottom: 1px solid rgba(0, 119, 204, 0.2);
             padding-bottom: 0.4rem;
+            background-color: rgba(0, 119, 204, 0.07);
+            padding: 0.5rem;
+            border-radius: 4px;
         }
         
         .info-section h4 i {
@@ -365,6 +367,31 @@
         
         .insight-section p:last-child {
             margin-bottom: 0;
+        }
+
+        /* KEEP JOB TITLE BORDERS */
+        .role h4 {
+            border-bottom: 1px solid rgba(0, 119, 204, 0.2);
+            padding-bottom: 0.4rem;
+            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            background-color: transparent;
+        }
+
+        /* SIDE-BY-SIDE ROLES */
+        .roles-container.multiple-roles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* SIDE-BY-SIDE INSIGHTS SECTIONS */
+        .insights-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.8rem;
         }
 
         @media (max-width: 768px) {
@@ -1254,17 +1281,19 @@
                         </div>
                     </div>
                     
-                    <div class="info-section">
-                        <h4><i class="fas fa-lightbulb"></i> Why This Course of Study</h4>
-                        <div class="insight-section">
-                            ${generateEducationInsight(company)}
+                    <div class="insights-container">
+                        <div class="info-section">
+                            <h4><i class="fas fa-lightbulb"></i> Why This Course of Study</h4>
+                            <div class="insight-section">
+                                ${generateEducationInsight(company)}
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="info-section">
-                        <h4><i class="fas fa-chart-line"></i> Key Learnings & Growth</h4>
-                        <div class="insight-section">
-                            ${generateLearningInsights(company, true)}
+                        
+                        <div class="info-section">
+                            <h4><i class="fas fa-chart-line"></i> Key Learnings & Growth</h4>
+                            <div class="insight-section">
+                                ${generateLearningInsights(company, true)}
+                            </div>
                         </div>
                     </div>
                 `;
@@ -1307,22 +1336,21 @@
                     `;
                 }
                 
-                // New "Why This Role" section
+                // Rearranged "Why This Role" and "Key Learnings" sections to be side by side
                 companyInfoHTML += `
-                    <div class="info-section">
-                        <h4><i class="fas fa-lightbulb"></i> Why This Role</h4>
-                        <div class="insight-section">
-                            ${generateRoleInsight(company)}
+                    <div class="insights-container">
+                        <div class="info-section">
+                            <h4><i class="fas fa-lightbulb"></i> Why This Role</h4>
+                            <div class="insight-section">
+                                ${generateRoleInsight(company)}
+                            </div>
                         </div>
-                    </div>
-                `;
-                
-                // New "Key Learnings & Growth" section
-                companyInfoHTML += `
-                    <div class="info-section">
-                        <h4><i class="fas fa-chart-line"></i> Key Learnings & Growth</h4>
-                        <div class="insight-section">
-                            ${generateLearningInsights(company)}
+                        
+                        <div class="info-section">
+                            <h4><i class="fas fa-chart-line"></i> Key Learnings & Growth</h4>
+                            <div class="insight-section">
+                                ${generateLearningInsights(company)}
+                            </div>
                         </div>
                     </div>
                 `;
