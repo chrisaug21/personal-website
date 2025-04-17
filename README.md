@@ -27,6 +27,8 @@ This website serves as my professional portfolio and personal brand homepage, hi
 - Hosting: Netlify
 - Development: Cursor
 - Project Management: Trello board
+- Email: Set up email forwarding through Namecheap to cg.augustine@gmail.com (receiving only)
+
 
 ## Site Structure
 
