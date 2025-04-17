@@ -26,6 +26,7 @@ This website serves as my professional portfolio and personal brand homepage, hi
 - Domain: chrisaug.com (bought from Namecheap)
 - Hosting: Netlify
 - Development: Cursor
+- Project Management: Trello board
 
 ## Site Structure
 
