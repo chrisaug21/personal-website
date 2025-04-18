@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chris Augustine - Brand & Style Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue-primary: #0077CC;
+            --blue-secondary: #8DA2C0;
+            --gold-accent: #F2C94C;
+            --white: #F8F9FA;
+            --black: #2F4858;
+            --gray-light: #E9ECEF;
+            --gray-medium: #ADB5BD;
+            --gray-dark: #495057;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --card-bg: #f9f9f9;
+            --card-border: #e9ecef;
+            --tag-bg: rgba(0, 119, 204, 0.1);
+            --tag-color: #0077cc;
+            --tag-border-color: rgba(0, 119, 204, 0.4);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--black);
+            background-color: var(--white);
+            font-size: 1.125rem;
+        }
+        
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            background-color: var(--blue-primary);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        header .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            text-align: center;
+            font-weight: 800;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            color: var(--blue-primary);
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem;
+            color: var(--blue-primary);
+        }
+        
+        h4 {
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem;
+            color: var(--black);
+        }
+        
+        p {
+            margin-bottom: 1.25rem;
+            font-size: 1.125rem;
+        }
+        
+        .intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        /* Color Palette */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .color-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .color-preview {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: relative;
+        }
+        
+        .color-preview.dark-text {
+            color: var(--black);
+        }
+        
+        .color-info {
+            padding: 1rem;
+            background-color: white;
+            border-top: 1px solid var(--gray-light);
+        }
+        
+        .color-title {
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+        
+        .color-hex {
+            font-family: monospace;
+            color: var(--gray-dark);
+            font-size: 0.9rem;
+        }
+        
+        .color-description {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--gray-dark);
+        }
+        
+        /* Typography */
+        .typography-section {
+            margin: 2rem 0;
+        }
+        
+        .font-example {
+            margin: 1rem 0;
+            padding: 1rem;
+            border: 1px solid var(--gray-light);
+            border-radius: 8px;
+        }
+        
+        .font-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--blue-primary);
+        }
+        
+        /* Components */
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .component-example {
+            border: 1px solid var(--gray-light);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .component-preview {
+            padding: 1.5rem;
+            background-color: white;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .component-code {
+            padding: 1rem;
+            background-color: #f5f5f5;
+            border-top: 1px solid var(--gray-light);
+            font-family: monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        
+        /* Buttons */
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--blue-primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #005fa3;
+        }
+        
+        .btn-secondary {
+            background-color: var(--blue-secondary);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #7B93B0;
+        }
+        
+        .btn-accent {
+            background-color: var(--gold-accent);
+            color: var(--black);
+        }
+        
+        .btn-accent:hover {
+            background-color: #E6BD38;
+        }
+        
+        .btn-outline-primary {
+            border: 2px solid var(--blue-primary);
+            background-color: transparent;
+            color: var(--blue-primary);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--blue-primary);
+            color: white;
+        }
+        
+        /* Cards */
+        .card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--card-border);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .card-header {
+            padding: 1rem;
+            background-color: var(--blue-primary);
+            color: white;
+            font-weight: bold;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .card-header-secondary {
+            background-color: var(--blue-secondary);
+        }
+        
+        .card-header-accent {
+            background-color: var(--gold-accent);
+            color: var(--black);
+        }
+        
+        .card-body {
+            padding: 1rem;
+            background-color: white;
+        }
+        
+        .card-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--blue-primary);
+        }
+        
+        .card-text {
+            margin-bottom: 1rem;
+            color: var(--gray-dark);
+        }
+        
+        /* Tags */
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 0.5rem;
+        }
+        
+        .skill-tag {
+            display: inline-block;
+            background-color: var(--tag-bg);
+            color: var(--tag-color);
+            padding: 0.3rem 0.7rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            line-height: 1.4;
+            border: 1px solid var(--tag-border-color);
+            transition: transform 0.2s ease;
+            position: relative;
+            cursor: help;
+        }
+        
+        .skill-tag:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Industry Tags Container */
+        .industry-tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--card-border);
+        }
+        
+        .industry-tags-container .skill-tag {
+            font-size: 0.95rem;
+            padding: 0.5rem 1rem;
+        }
+        
+        /* Icons */
+        .icon {
+            font-size: 1.8rem;
+            line-height: 1;
+            width: 30px;
+            text-align: center;
+            color: var(--blue-primary);
+        }
+        
+        .icon-large {
+            font-size: 2.5rem;
+        }
+        
+        .icon-small {
+            font-size: 1.2rem;
+        }
+        
+        /* Font Awesome Icon Guidelines */
+        .icon-guidelines {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--card-border);
+            margin: 2rem 0;
+        }
+        
+        .icon-example {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1rem 0;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 8px;
+        }
+        
+        .icon-example i {
+            color: var(--blue-primary);
+        }
+        
+        .icon-example .description {
+            flex: 1;
+        }
+        
+        .icon-example .code {
+            font-family: monospace;
+            background-color: #f5f5f5;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        
+        /* Feature Cards */
+        .feature-card {
+            background-color: var(--gray-light);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--blue-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-title {
+            color: var(--blue-primary);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .feature-text {
+            color: var(--black);
+        }
+        
+        /* Pills/Tags */
+        .pills-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .pill {
+            background-color: var(--white);
+            border: 1px solid var(--blue-secondary);
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--blue-primary);
+            transition: background-color 0.3s;
+        }
+        
+        .pill:hover {
+            background-color: var(--blue-primary);
+            color: white;
+            border-color: var(--blue-primary);
+        }
+        
+        .pill-icon {
+            color: var(--blue-primary);
+        }
+        
+        .pill:hover .pill-icon {
+            color: white;
+        }
+        
+        /* Timeline */
+        .timeline {
+            display: flex;
+            overflow-x: auto;
+            padding: 1rem 0;
+            margin: 2rem 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 1rem;
+            min-width: 80px;
+        }
+        
+        .timeline-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid var(--blue-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-year {
+            font-size: 0.8rem;
+            color: var(--gray-dark);
+        }
+        
+        /* Contact Cards */
+        .contact-card {
+            background-color: var(--gray-light);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--blue-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-text {
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-subtext {
+            color: var(--gray-dark);
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Navigation */
+        .nav {
+            display: flex;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+        
+        .nav-item {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 700;
+            font-size: 18px;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item:hover {
+            color: var(--blue-primary);
+            background-color: transparent;
+            transform: none;
+        }
+        
+        .nav-item.active {
+            color: var(--blue-primary);
+            border-bottom: none;
+        }
+        
+        .nav-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--blue-primary);
+            transform: scaleX(1);
+        }
+        
+        /* CSS Variables */
+        .css-variables {
+            background-color: #2D2D2D;
+            color: #E0E0E0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            line-height: 1.5;
+            white-space: pre;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        
+        .comment {
+            color: #6A9955;
+        }
+        
+        .property {
+            color: #9CDCFE;
+        }
+        
+        .value {
+            color: #CE9178;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section {
+                padding: 1.5rem;
+            }
+            
+            .color-grid, 
+            .component-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Chris Augustine Brand Guide</h1>
+            <p>A comprehensive guide for maintaining visual consistency across my personal website and digital presence</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="intro">
+            <p>This brand guide provides a comprehensive overview of the visual elements, colors, typography, and components that make up my personal brand. Use this document as a reference when implementing designs across my website and digital presence.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Color Palette</h2>
+            <p>My color palette consists of a primary blue, a softer periwinkle blue secondary color, and a gold accent. These colors work together to create a professional, trustworthy appearance while maintaining visual interest.</p>
+            
+            <h3>Primary Colors</h3>
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-preview" style="background-color: #0077CC;">
+                        #0077CC
+                    </div>
+                    <div class="color-info">
+                        <div class="color-title">Ocean Blue (Primary)</div>
+                        <div class="color-hex">HEX: #0077CC / RGB: 0, 119, 204</div>
+                        <div class="color-description">Used for primary elements, main headings, navigation highlights, and primary buttons.</div>
+                    </div>
+                </div>
+                
+                <div class="color-card">
+                    <div class="color-preview" style="background-color: #8DA2C0;">
+                        #8DA2C0
+                    </div>
+                    <div class="color-info">
+                        <div class="color-title">Periwinkle Blue (Secondary)</div>
+                        <div class="color-hex">HEX: #8DA2C0 / RGB: 141, 162, 192</div>
+                        <div class="color-description">Used for secondary elements, supporting UI components, and secondary buttons.</div>
+                    </div>
+                </div>
+                
+                <div class="color-card">
+                    <div class="color-preview dark-text" style="background-color: #F2C94C;">
+                        #F2C94C
+                    </div>
+                    <div class="color-info">
+                        <div class="color-title">Gold (Accent)</div>
+                        <div class="color-hex">HEX: #F2C94C / RGB: 242, 201, 76</div>
+                        <div class="color-description">Used for accents, calls-to-action, and highlighted elements.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Neutral Colors</h3>
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-preview dark-text" style="background-color: #F8F9FA;">
+                        #F8F9FA
+                    </div>
+                    <div class="color-info">
+                        <div class="color-title">Off-White (Background)</div>
+                        <div class="color-hex">HEX: #F8F9FA / RGB: 248, 249, 250</div>
+                        <div class="color-description">Used for page backgrounds and light surfaces.</div>
+                    </div>
+                </div>
+                
+                <div class="color-card">
+                    <div class="color-preview" style="background-color: #2F4858;">
+                        #2F4858
+                    </div>
+                    <div class="color-info">
+                        <div class="color-title">Dark Blue-Gray (Text)</div>
+                        <div class="color-hex">HEX: #2F4858 / RGB: 47, 72, 88</div>
+                        <div class="color-description">Used for main text, headings, and dark UI elements.</div>
+                    </div>
+                </div>
+                
+                <div class="color-card">
+                    <div class="color-preview dark-text" style="background-color: #E9ECEF;">
+                        #E9ECEF
+                    </div>
+                    <div class="color-info">
+                        <div class="color-title">Light Gray</div>
+                        <div class="color-hex">HEX: #E9ECEF / RGB: 233, 236, 239</div>
+                        <div class="color-description">Used for subtle backgrounds, dividers, and borders.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>CSS Variables</h3>
+            <p>Include these CSS variables in your root stylesheet to easily implement the color scheme across your website:</p>
+            
+            <div class="css-variables"><span class="comment">/* Color Palette */</span>
+:root {
+  <span class="property">--blue-primary</span>: <span class="value">#0077CC</span>;
+  <span class="property">--blue-secondary</span>: <span class="value">#8DA2C0</span>;
+  <span class="property">--gold-accent</span>: <span class="value">#F2C94C</span>;
+  <span class="property">--white</span>: <span class="value">#F8F9FA</span>;
+  <span class="property">--black</span>: <span class="value">#2F4858</span>;
+  <span class="property">--gray-light</span>: <span class="value">#E9ECEF</span>;
+  <span class="property">--gray-medium</span>: <span class="value">#ADB5BD</span>;
+  <span class="property">--gray-dark</span>: <span class="value">#495057</span>;
+}</div>
+
+            <h3>Color Usage Guidelines</h3>
+            <ul>
+                <li><strong>Primary Blue (#0077CC):</strong> Use for main navigation, primary buttons, headings, and key UI elements.</li>
+                <li><strong>Periwinkle Blue (#8DA2C0):</strong> Use for secondary elements, supporting UI, card headers, and secondary buttons.</li>
+                <li><strong>Gold (#F2C94C):</strong> Use sparingly for calls-to-action, feature highlights, and important UI elements you want to emphasize.</li>
+                <li><strong>Off-White (#F8F9FA):</strong> Use for page backgrounds and content areas.</li>
+                <li><strong>Dark Blue-Gray (#2F4858):</strong> Use for text, icons, and other content that needs high contrast.</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>Typography</h2>
+            <p>A clean, professional typography system that enhances readability and maintains a modern appearance.</p>
+            
+            <h3>Font Families</h3>
+            <p>The brand typography uses a complementary font pairing of Nunito for headings and Lato for body text. This combination creates a professional, clean aesthetic while maintaining excellent readability across devices.</p>
+            
+            <div class="typography-section">
+                <div class="font-example">
+                    <div class="font-title">Primary Font: Nunito (Headings)</div>
+                    <h1 style="font-family: 'Nunito', sans-serif; font-weight: 800;">Heading 1 (2.5rem)</h1>
+                    <h2 style="font-family: 'Nunito', sans-serif; font-size: 2rem;">Heading 2 (2rem)</h2>
+                    <h3 style="font-family: 'Nunito', sans-serif; font-size: 1.5rem;">Heading 3 (1.5rem)</h3>
+                    <h4 style="font-family: 'Nunito', sans-serif; font-size: 1.2rem;">Heading 4 (1.2rem)</h4>
+                </div>
+                
+                <div class="font-example" style="margin-top: 2rem;">
+                    <div class="font-title">Secondary Font: Lato (Body)</div>
+                    <p style="font-family: 'Lato', sans-serif; font-size: 1.125rem;">Body text (1.125rem): A versatile product leader with a passion for empowering teams and solving meaningful problems.</p>
+                    <p style="font-family: 'Lato', sans-serif; font-weight: 700;">Bold text: Using Lato bold (700) for emphasis.</p>
+                    <p style="font-family: 'Lato', sans-serif; font-size: 0.875rem;">Small text (0.875rem): Professional experience across multiple industries.</p>
+                </div>
+            </div>
+            
+            <h3>Font Weights</h3>
+            <ul>
+                <li><strong>Nunito:</strong>
+                    <ul>
+                        <li><strong>Regular (400):</strong> Not used</li>
+                        <li><strong>Bold (700):</strong> Used for h2-h6 headings</li>
+                        <li><strong>Extra Bold (800):</strong> Used for h1 headings</li>
+                    </ul>
+                </li>
+                <li><strong>Lato:</strong>
+                    <ul>
+                        <li><strong>Regular (400):</strong> Used for body text and general content</li>
+                        <li><strong>Bold (700):</strong> Used for emphasis, buttons, and strong text</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h3>Typography CSS</h3>
+            <div class="css-variables"><span class="comment">/* Typography */</span>
+body {
+  <span class="property">font-family</span>: <span class="value">'Lato', sans-serif</span>;
+  <span class="property">font-weight</span>: <span class="value">400</span>;
+  <span class="property">line-height</span>: <span class="value">1.6</span>;
+  <span class="property">color</span>: <span class="value">var(--black)</span>;
+  <span class="property">font-size</span>: <span class="value">1rem</span>;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  <span class="property">font-family</span>: <span class="value">'Nunito', sans-serif</span>;
+  <span class="property">font-weight</span>: <span class="value">700</span>;
+  <span class="property">margin-top</span>: <span class="value">0</span>;
+  <span class="property">margin-bottom</span>: <span class="value">1rem</span>;
+  <span class="property">line-height</span>: <span class="value">1.2</span>;
+}
+
+h1 {
+  <span class="property">font-weight</span>: <span class="value">800</span>;
+  <span class="property">font-size</span>: <span class="value">2.5rem</span>;
+  <span class="property">color</span>: <span class="value">var(--blue-primary)</span>;
+}
+
+h2 {
+  <span class="property">font-size</span>: <span class="value">2rem</span>;
+  <span class="property">color</span>: <span class="value">var(--blue-primary)</span>;
+}
+
+h3 {
+  <span class="property">font-size</span>: <span class="value">1.5rem</span>;
+}
+
+h4 {
+  <span class="property">font-size</span>: <span class="value">1.2rem</span>;
+}
+
+p {
+  <span class="property">margin-bottom</span>: <span class="value">1.25rem</span>;
+  <span class="property">font-size</span>: <span class="value">1.125rem</span>;
+}
+
+b, strong {
+  <span class="property">font-weight</span>: <span class="value">700</span>;
+}</div>
+        </div>
+        
+        <div class="section">
+            <h2>Navigation</h2>
+            <p>Consistent navigation with proper spacing and active states help users navigate the website easily.</p>
+            
+            <h3>Main Navigation</h3>
+            <div style="background-color: white; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <div class="nav">
+                    <a href="#" class="nav-item">About</a>
+                    <a href="#" class="nav-item active">Experience</a>
+                    <a href="#" class="nav-item">Skills</a>
+                    <a href="#" class="nav-item">Philosophy</a>
+                    <a href="#" class="nav-item">Contact</a>
+                </div>
+            </div>
+            
+            <h4>Navigation CSS</h4>
+            <div class="css-variables"><span class="comment">/* Navigation Styles */</span>
+.nav {
+  <span class="property">display</span>: <span class="value">flex</span>;
+  <span class="property">gap</span>: <span class="value">2rem</span>;
+  <span class="property">margin</span>: <span class="value">1rem 0</span>;
+}
+
+.nav-item {
+  <span class="property">text-decoration</span>: <span class="value">none</span>;
+  <span class="property">color</span>: <span class="value">var(--black)</span>;
+  <span class="property">font-weight</span>: <span class="value">700</span>;
+  <span class="property">font-size</span>: <span class="value">18px</span>;
+  <span class="property">position</span>: <span class="value">relative</span>;
+  <span class="property">padding</span>: <span class="value">0.5rem 0</span>;
+  <span class="property">transition</span>: <span class="value">all 0.3s ease</span>;
+}
+
+.nav-item:hover {
+  <span class="property">color</span>: <span class="value">var(--blue-primary)</span>;
+  <span class="property">background-color</span>: <span class="value">transparent</span>;
+  <span class="property">transform</span>: <span class="value">none</span>;
+}
+
+.nav-item.active {
+  <span class="property">color</span>: <span class="value">var(--blue-primary)</span>;
+  <span class="property">border-bottom</span>: <span class="value">none</span>;
+}
+
+.nav-item.active::after {
+  <span class="property">content</span>: <span class="value">''</span>;
+  <span class="property">position</span>: <span class="value">absolute</span>;
+  <span class="property">bottom</span>: <span class="value">0</span>;
+  <span class="property">left</span>: <span class="value">0</span>;
+  <span class="property">width</span>: <span class="value">100%</span>;
+  <span class="property">height</span>: <span class="value">2px</span>;
+  <span class="property">background-color</span>: <span class="value">var(--blue-primary)</span>;
+  <span class="property">transform</span>: <span class="value">scaleX(1)</span>;
+}</div>
+        </div>
+        
+        <div class="section">
+            <h2>Buttons</h2>
+            <p>Buttons follow a consistent style with different variants for different purposes.</p>
+            
+            <div class="button-row">
+                <button class="btn btn-primary">Primary Button</button>
+                <button class="btn btn-secondary">Secondary Button</button>
+                <button class="btn btn-accent">Accent Button</button>
+                <button class="btn btn-outline-primary">Outline Button</button>
+            </div>
+            
+            <h4>Button CSS</h4>
+            <div class="css-variables"><span class="comment">/* Button Styles */</span>
+.btn {
+  <span class="property">display</span>: <span class="value">inline-block</span>;
+  <span class="property">padding</span>: <span class="value">0.75rem 1.5rem</span>;
+  <span class="property">border-radius</span>: <span class="value">4px</span>;
+  <span class="property">font-weight</span>: <span class="value">700</span>;
+  <span class="property">text-align</span>: <span class="value">center</span>;
+  <span class="property">cursor</span>: <span class="value">pointer</span>;
+  <span class="property">border</span>: <span class="value">none</span>;
+  <span class="property">transition</span>: <span class="value">background-color 0.3s</span>;
+  <span class="property">font-family</span>: <span class="value">'Lato', sans-serif</span>;
+  <span class="property">font-size</span>: <span class="value">1rem</span>;
+}
+
+.btn-primary {
+  <span class="property">background-color</span>: <span class="value">var(--blue-primary)</span>;
+  <span class="property">color</span>: <span class="value">white</span>;
+}
+
+.btn-primary:hover {
+  <span class="property">background-color</span>: <span class="value">#005fa3</span>;
+}
+
+.btn-secondary {
+  <span class="property">background-color</span>: <span class="value">var(--blue-secondary)</span>;
+  <span class="property">color</span>: <span class="value">white</span>;
+}
+
+.btn-secondary:hover {
+  <span class="property">background-color</span>: <span class="value">#7B93B0</span>;
+}
+
+.btn-accent {
+  <span class="property">background-color</span>: <span class="value">var(--gold-accent)</span>;
+  <span class="property">color</span>: <span class="value">var(--black)</span>;
+}
+
+.btn-accent:hover {
+  <span class="property">background-color</span>: <span class="value">#E6BD38</span>;
+}
+
+.btn-outline-primary {
+  <span class="property">border</span>: <span class="value">2px solid var(--blue-primary)</span>;
+  <span class="property">background-color</span>: <span class="value">transparent</span>;
+  <span class="property">color</span>: <span class="value">var(--blue-primary)</span>;
+}
+
+.btn-outline-primary:hover {
+  <span class="property">background-color</span>: <span class="value">var(--blue-primary)</span>;
+  <span class="property">color</span>: <span class="value">white</span>;
+}</div>
+
+        </div>
+        
+        <div class="section">
+            <h2>Cards</h2>
+            <p>Standard cards are used to group related content and provide a clear visual hierarchy.</p>
+            
+            <div class="component-grid">
+                <div class="card">
+                    <div class="card-header">Primary Card Header</div>
+                    <div class="card-body">
+                        <div class="card-title">Card Title</div>
+                        <div class="card-text">Card content goes here. This is where you would put the main content of the card.</div>
+                        <button class="btn btn-primary">Action</button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header card-header-secondary">Secondary Card Header</div>
+                    <div class="card-body">
+                        <div class="card-title">Card Title</div>
+                        <div class="card-text">Card content goes here. This is where you would put the main content of the card.</div>
+                        <button class="btn btn-secondary">Action</button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header card-header-accent">Accent Card Header</div>
+                    <div class="card-body">
+                        <div class="card-title">Card Title</div>
+                        <div class="card-text">Card content goes here. This is where you would put the main content of the card.</div>
+                        <button class="btn btn-accent">Action</button>
+                    </div>
+                </div>
+            </div>
+            
+            <h4>Card CSS</h4>
+            <div class="css-variables"><span class="comment">/* Card Styles */</span>
+.card {
+  <span class="property">background-color</span>: <span class="value">var(--card-bg)</span>;
+  <span class="property">padding</span>: <span class="value">25px</span>;
+  <span class="property">border-radius</span>: <span class="value">8px</span>;
+  <span class="property">border</span>: <span class="value">1px solid var(--card-border)</span>;
+  <span class="property">transition</span>: <span class="value">transform 0.2s ease, box-shadow 0.2s ease</span>;
+}
+
+.card:hover {
+  <span class="property">transform</span>: <span class="value">translateY(-3px)</span>;
+  <span class="property">box-shadow</span>: <span class="value">0 6px 12px rgba(0, 0, 0, 0.08)</span>;
+}
+
+.card-header {
+  <span class="property">padding</span>: <span class="value">1rem</span>;
+  <span class="property">background-color</span>: <span class="value">var(--blue-primary)</span>;
+  <span class="property">color</span>: <span class="value">white</span>;
+  <span class="property">font-weight</span>: <span class="value">bold</span>;
+  <span class="property">border-radius</span>: <span class="value">8px 8px 0 0</span>;
+}
+
+.card-header-secondary {
+  <span class="property">background-color</span>: <span class="value">var(--blue-secondary)</span>;
+}
+
+.card-header-accent {
+  <span class="property">background-color</span>: <span class="value">var(--gold-accent)</span>;
+  <span class="property">color</span>: <span class="value">var(--black)</span>;
+}
+
+.card-body {
+  <span class="property">padding</span>: <span class="value">1rem</span>;
+  <span class="property">background-color</span>: <span class="value">white</span>;
+}
+
+.card-title {
+  <span class="property">font-weight</span>: <span class="value">bold</span>;
+  <span class="property">margin-bottom</span>: <span class="value">0.5rem</span>;
+  <span class="property">color</span>: <span class="value">var(--blue-primary)</span>;
+}
+
+.card-text {
+  <span class="property">margin-bottom</span>: <span class="value">1rem</span>;
+  <span class="property">color</span>: <span class="value">var(--gray-dark)</span>;
+}</div>
+
+        </div>
+        
+        <div class="section">
+            <h2>Feature Cards</h2>
+            <p>Feature cards are used to highlight key aspects of your professional approach or services with accompanying icons.</p>
+            
+            <div class="component-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <div class="feature-title">Problem Discovery</div>
+                    <div class="feature-text">Understanding user problems is the foundation of great products. I dig deep to uncover true pain points.</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <div class="feature-title">Team Empowerment</div>
+                    <div class="feature-text">Building high-performing teams where everyone feels empowered to contribute their best work.</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-title">Continuous Learning</div>
+                    <div class="feature-text">Constantly seeking new challenges and learning opportunities to grow as a leader.</div>
+                </div>
+            </div>
+            
+            <h4>Feature Card CSS</h4>
+            <div class="css-variables"><span class="comment">/* Feature Card Styles */</span>
+.feature-card {
+  <span class="property">background-color</span>: <span class="value">var(--gray-light)</span>;
+  <span class="property">border-radius</span>: <span class="value">8px</span>;
+  <span class="property">padding</span>: <span class="value">2rem</span>;
+  <span class="property">margin-bottom</span>: <span class="value">1.5rem</span>;
+  <span class="property">text-align</span>: <span class="value">center</span>;
+}
+
+.feature-icon {
+  <span class="property">font-size</span>: <span class="value">2.5rem</span>;
+  <span class="property">color</span>: <span class="value">var(--blue-primary)</span>;
+  <span class="property">margin-bottom</span>: <span class="value">1rem</span>;
+}
+
+.feature-title {
+  <span class="property">color</span>: <span class="value">var(--blue-primary)</span>;
+  <span class="property">font-weight</span>: <span class="value">bold</span>;
+  <span class="property">margin-bottom</span>: <span class="value">0.5rem</span>;
+  <span class="property">font-size</span>: <span class="value">1.2rem</span>;
+}
+
+.feature-text {
+  <span class="property">color</span>: <span class="value">var(--black)</span>;
+}</div>
+
+        </div>
+        
+        <div class="section">
+            <h2>Tags</h2>
+            <p>Tags are used to display skills, expertise areas, and industry experience in a clean, organized way.</p>
+            
+            <h3>Skill Tags</h3>
+            <div class="tags-container">
+                <div class="skill-tag">Product Strategy</div>
+                <div class="skill-tag">User Research</div>
+                <div class="skill-tag">Agile Development</div>
+                <div class="skill-tag">Team Leadership</div>
+            </div>
+            
+            <h3>Industry Tags</h3>
+            <div class="industry-tags-container">
+                <div class="skill-tag">🎬 Video Marketing</div>
+                <div class="skill-tag">🖥️ Workplace Technology</div>
+                <div class="skill-tag">👨‍💼 HR Tech</div>
+                <div class="skill-tag">🏥 Healthcare</div>
+            </div>
+            
+            <h4>Tag CSS</h4>
+            <div class="css-variables"><span class="comment">/* Tag Styles */</span>
+.tags-container {
+  <span class="property">display</span>: <span class="value">flex</span>;
+  <span class="property">flex-wrap</span>: <span class="value">wrap</span>;
+  <span class="property">gap</span>: <span class="value">0.6rem</span>;
+  <span class="property">margin-top</span>: <span class="value">0.5rem</span>;
+}
+
+.skill-tag {
+  <span class="property">display</span>: <span class="value">inline-block</span>;
+  <span class="property">background-color</span>: <span class="value">var(--tag-bg)</span>;
+  <span class="property">color</span>: <span class="value">var(--tag-color)</span>;
+  <span class="property">padding</span>: <span class="value">0.3rem 0.7rem</span>;
+  <span class="property">border-radius</span>: <span class="value">12px</span>;
+  <span class="property">font-size</span>: <span class="value">0.85rem</span>;
+  <span class="property">font-weight</span>: <span class="value">500</span>;
+  <span class="property">line-height</span>: <span class="value">1.4</span>;
+  <span class="property">border</span>: <span class="value">1px solid var(--tag-border-color)</span>;
+  <span class="property">transition</span>: <span class="value">transform 0.2s ease</span>;
+  <span class="property">position</span>: <span class="value">relative</span>;
+  <span class="property">cursor</span>: <span class="value">help</span>;
+}
+
+.skill-tag:hover {
+  <span class="property">transform</span>: <span class="value">scale(1.05)</span>;
+}
+
+.industry-tags-container {
+  <span class="property">display</span>: <span class="value">flex</span>;
+  <span class="property">flex-wrap</span>: <span class="value">wrap</span>;
+  <span class="property">justify-content</span>: <span class="value">center</span>;
+  <span class="property">gap</span>: <span class="value">0.8rem</span>;
+  <span class="property">margin-top</span>: <span class="value">1.5rem</span>;
+  <span class="property">background-color</span>: <span class="value">var(--card-bg)</span>;
+  <span class="property">padding</span>: <span class="value">25px</span>;
+  <span class="property">border-radius</span>: <span class="value">8px</span>;
+  <span class="property">border</span>: <span class="value">1px solid var(--card-border)</span>;
+}</div>
+        </div>
+        
+        <div class="section">
+            <h2>Icons</h2>
+            <p>We use a combination of Font Awesome icons and emojis to enhance visual communication and user experience.</p>
+            
+            <div class="icon-guidelines">
+                <h3>Font Awesome Icons</h3>
+                <p>Font Awesome icons are used for UI elements, navigation, and feature highlights. We use version 6.4.0 of Font Awesome.</p>
+                
+                <div class="icon-example">
+                    <i class="fas fa-rocket"></i>
+                    <div class="description">Feature highlight icon</div>
+                    <div class="code">&lt;i class="fas fa-rocket"&gt;&lt;/i&gt;</div>
+                </div>
+                
+                <div class="icon-example">
+                    <i class="fas fa-envelope"></i>
+                    <div class="description">Contact/Email icon</div>
+                    <div class="code">&lt;i class="fas fa-envelope"&gt;&lt;/i&gt;</div>
+                </div>
+                
+                <div class="icon-example">
+                    <i class="fas fa-linkedin"></i>
+                    <div class="description">Social media icon</div>
+                    <div class="code">&lt;i class="fab fa-linkedin"&gt;&lt;/i&gt;</div>
+                </div>
+                
+                <h3>Icon Sizes</h3>
+                <div class="icon-example">
+                    <i class="fas fa-star icon-small"></i>
+                    <div class="description">Small icon (1.2rem)</div>
+                </div>
+                
+                <div class="icon-example">
+                    <i class="fas fa-star icon"></i>
+                    <div class="description">Default icon (1.8rem)</div>
+                </div>
+                
+                <div class="icon-example">
+                    <i class="fas fa-star icon-large"></i>
+                    <div class="description">Large icon (2.5rem)</div>
+                </div>
+                
+                <h3>Emojis</h3>
+                <p>Emojis are used primarily in industry tags and feature highlights to add visual interest and quick recognition.</p>
+                
+                <div class="tags-container">
+                    <div class="skill-tag">🎬 Video Marketing</div>
+                    <div class="skill-tag">🖥️ Workplace Technology</div>
+                    <div class="skill-tag">👨‍💼 HR Tech</div>
+                    <div class="skill-tag">🏥 Healthcare</div>
+                </div>
+            </div>
+            
+            <h4>Icon CSS</h4>
+            <div class="css-variables"><span class="comment">/* Icon Styles */</span>
+.icon {
+  <span class="property">font-size</span>: <span class="value">1.8rem</span>;
+  <span class="property">line-height</span>: <span class="value">1</span>;
+  <span class="property">width</span>: <span class="value">30px</span>;
+  <span class="property">text-align</span>: <span class="value">center</span>;
+  <span class="property">color</span>: <span class="value">var(--blue-primary)</span>;
+}
+
+.icon-large {
+  <span class="property">font-size</span>: <span class="value">2.5rem</span>;
+}
+
+.icon-small {
+  <span class="property">font-size</span>: <span class="value">1.2rem</span>;
+}</div>
+        </div>
+        
+        <div class="section">
+            <h2>Usage Guidelines</h2>
+            <p>Follow these guidelines to maintain a consistent brand appearance across your website and digital presence.</p>
+            
+            <h3>General Guidelines</h3>
+            <ul>
+                <li>Always use the defined color palette and typography system</li>
+                <li>Maintain proper spacing and alignment across all elements</li>
+                <li>Ensure responsive behavior across different screen sizes</li>
+                <li>Use consistent iconography that matches the brand's professional style</li>
+                <li>Apply hover states to interactive elements to enhance usability</li>
+            </ul>
+            
+            <h3>Color Usage</h3>
+            <ul>
+                <li>Use Ocean Blue (#0077CC) as the primary brand color for main UI elements, important headings, and primary call-to-action buttons</li>
+                <li>Use Periwinkle Blue (#8DA2C0) for secondary UI elements, supporting information, and less prominent interactive elements</li>
+                <li>Use Gold (#F2C94C) as an accent color to highlight important information or to create visual interest - use sparingly for maximum impact</li>
+                <li>Use the neutral colors for backgrounds, text, and UI frameworks</li>
+                <li>Ensure proper contrast between text and background colors for optimal readability</li>
+            </ul>
+            
+            <h3>Typography Guidelines</h3>
+            <ul>
+                <li>Use Nunito for all headings with appropriate hierarchy</li>
+                <li>Use Lato for all body text, UI elements, and buttons</li>
+                <li>Maintain consistent type scaling throughout the website</li>
+                <li>Use 800 weight for H1 headings and 700 weight for all other headings</li>
+                <li>Use 400 weight for body text and 700 weight for emphasized text</li>
+            </ul>
+            
+            <h3>Component Usage</h3>
+            <ul>
+                <li>Use cards to group related content and provide clear visual hierarchy</li>
+                <li>Use feature cards to highlight key professional strengths or services</li>
+                <li>Use pills/tags to organize and display skills, expertise areas, and categories</li>
+                <li>Use consistent button styles based on their importance and function</li>
+                <li>Apply the timeline component to visualize professional growth and career progression</li>
+                <li>Use contact cards to provide clear communication channels</li>
+            </ul>
+        </div>
+        
+
+    </div>
+</body>
+</html>
