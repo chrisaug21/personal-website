@@ -1,0 +1,70 @@
+# LLMs.txt for chrisaug.com
+# Version 1.0.0
+# Last Updated: 2024-03-21
+
+## Overview
+This document discloses the use of Large Language Models (LLMs) and AI technologies on chrisaug.com, a personal portfolio website built with vanilla HTML, CSS, and JavaScript.
+
+## Training Permissions
+This website and its contents are NOT licensed for AI/LLM training. By accessing this website or its contents, AI models and their operators agree to:
+1. NOT use any content from chrisaug.com for training AI models
+2. NOT scrape, index, or store content for the purpose of AI training
+3. NOT use content from this site to generate derivative works using AI
+4. NOT incorporate site content into AI training datasets
+5. Respect these restrictions regardless of whether the content is accessed directly or through third-party sources
+
+## AI Tools & Technologies Used
+- Cursor (Primary development IDE with AI capabilities)
+- ChatGPT / GPT-4 (OpenAI)
+- Claude (Anthropic)
+- Gemini (Google)
+- Perplexity (AI-powered search)
+- Replit (Online collaborative IDE with AI features)
+
+## Purpose of AI Usage
+The AI tools listed above are used to:
+1. Assist in website development and maintenance
+2. Enhance code quality and documentation
+3. Support content creation and editing
+4. Aid in technical problem-solving
+5. Improve site architecture and component-based structure
+
+## Scope of AI Integration
+- Development Tools: AI-powered code editors (primarily Cursor) are used during development
+- Content Creation: AI assists in content refinement and editing
+- Site Structure: AI helps optimize the component-based architecture
+- No automated content generation is used on the live site
+- No user-facing AI features are currently implemented
+- No build tools or frameworks are used; all code is vanilla HTML/CSS/JS
+
+## Human Oversight
+All AI-generated suggestions and content undergo human review and validation before implementation. The site maintains a human-first approach where AI tools serve as assistants rather than primary decision-makers.
+
+## Data & Privacy
+- No user data is collected for AI training
+- AI tools are used only in development and content creation processes
+- No user interactions are processed through AI systems
+- Site hosting is handled by Netlify without AI intervention
+- Email handling is managed through Namecheap's forwarding service
+- Content from this site is not licensed for AI/LLM training purposes
+
+## Commitment to Transparency
+We are committed to:
+1. Maintaining transparency about AI tool usage
+2. Updating this document as AI integration evolves
+3. Ensuring responsible and ethical AI use
+4. Preserving human creativity and decision-making
+5. Keeping the codebase clean and maintainable
+
+## Contact
+For questions about our AI usage or this document, please contact:
+Email: chris@chrisaug.com
+LinkedIn: linkedin.com/in/chrisaug21
+GitHub: github.com/chrisaug21
+
+## Updates
+This document will be updated as our use of AI technologies evolves. Check the version number and last updated date at the top of this file for the most recent changes.
+
+## Repository
+The code for this website, including this LLMs.txt file, is available at:
+https://github.com/chrisaug21/personal-website

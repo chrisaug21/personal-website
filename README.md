@@ -48,6 +48,6 @@ This website serves as my professional portfolio and personal brand homepage, hi
 
 ## Contact
 
-- LinkedIn: [linkedin.com/in/chrisaugustine](https://linkedin.com/in/chrisaugustine)
-- GitHub: [github.com/chrisaugustine](https://github.com/chrisaugustine)
-- Email: Available on the contact page
+- LinkedIn: [linkedin.com/in/chrisaugustine](https://linkedin.com/in/chrisaug21)
+- GitHub: [github.com/chrisaugustine](https://github.com/chrisaug21)
+- Email: [chrisaug@chrisaug.com](mailto:chris@chrisaug.com)
