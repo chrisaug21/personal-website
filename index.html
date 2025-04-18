@@ -44,7 +44,7 @@
         .main-heading {
             font-size: 4rem;
             font-weight: 800;
-            background: linear-gradient(45deg, #0077cc, #6c5ce7);
+            background: linear-gradient(45deg, #0077cc, #8DA2C0);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -73,7 +73,6 @@
             transition: all 0.3s ease;
             overflow: hidden;
             position: relative;
-            padding-bottom: 1rem;
             border: 1px solid #eaeaea;
             height: 100%;
             display: flex;
@@ -87,21 +86,31 @@
         
         .card-image {
             height: 160px;
-            background-size: cover;
-            background-position: center;
+            background-color: var(--blue-secondary);
             position: relative;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding: 1.5rem;
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .image-header {
             color: white;
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 700;
             text-align: center;
             width: 100%;
-            z-index: 1;
+            margin: 0;
             text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
@@ -110,26 +119,7 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-        }
-        
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: #333;
-            display: flex;
-            align-items: center;
-            min-height: 2.5rem;
-            height: 2.5rem;
-            width: 100%;
-            overflow: hidden;
-        }
-        
-        .card-title i {
-            margin-right: 10px;
-            color: #0077cc;
-            font-size: 1.25rem;
-            flex-shrink: 0;
+            border-top: 4px solid var(--blue-primary);
         }
         
         .card-description {
@@ -141,7 +131,7 @@
         .card-link {
             display: inline-block;
             padding: 0.75rem 1.5rem;
-            background: #0077cc;
+            background: var(--blue-primary);
             color: white;
             text-decoration: none;
             border-radius: 8px;
@@ -149,10 +139,15 @@
             transition: all 0.3s ease;
             align-self: flex-start;
             margin-top: auto;
+            text-align: center;
+            width: auto;
+            box-sizing: border-box;
         }
         
         .card-link:hover {
             background: #005fa3;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,119,204,0.2);
         }
         
         .intro-container {
@@ -233,55 +228,55 @@
             
             <div class="nav-card-grid">
                 <div class="nav-card">
-                    <div class="card-image" style="background-color: #0077cc;">
+                    <div class="card-image">
+                        <div class="card-icon"><i class="fas fa-user"></i></div>
                         <h2 class="image-header">About Me</h2>
                     </div>
                     <div class="card-content">
-                        <h3 class="card-title"><i class="fas fa-user"></i> About Me</h3>
                         <p class="card-description">Learn about my background, values, and what drives me as a product leader.</p>
                         <a href="about.html" class="card-link">Meet Chris</a>
                     </div>
                 </div>
                 
                 <div class="nav-card">
-                    <div class="card-image" style="background-color: #6c5ce7;">
+                    <div class="card-image">
+                        <div class="card-icon"><i class="fas fa-briefcase"></i></div>
                         <h2 class="image-header">Experience</h2>
                     </div>
                     <div class="card-content">
-                        <h3 class="card-title"><i class="fas fa-briefcase"></i> Experience</h3>
                         <p class="card-description">Explore my professional journey and the products I've helped build.</p>
                         <a href="experience-journey.html" class="card-link">View Journey</a>
                     </div>
                 </div>
                 
                 <div class="nav-card">
-                    <div class="card-image" style="background-color: #00b894;">
+                    <div class="card-image">
+                        <div class="card-icon"><i class="fas fa-tools"></i></div>
                         <h2 class="image-header">Skills</h2>
                     </div>
                     <div class="card-content">
-                        <h3 class="card-title"><i class="fas fa-tools"></i> Skills</h3>
                         <p class="card-description">Discover my toolkit and approaches to product management.</p>
                         <a href="skills.html" class="card-link">See Skills</a>
                     </div>
                 </div>
                 
                 <div class="nav-card">
-                    <div class="card-image" style="background-color: #e84393;">
+                    <div class="card-image">
+                        <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
                         <h2 class="image-header">Philosophy</h2>
                     </div>
                     <div class="card-content">
-                        <h3 class="card-title"><i class="fas fa-lightbulb"></i> Philosophy</h3>
                         <p class="card-description">My approach to product leadership and team building.</p>
                         <a href="philosophy.html" class="card-link">Read More</a>
                     </div>
                 </div>
                 
                 <div class="nav-card">
-                    <div class="card-image" style="background-color: #f39c12;">
+                    <div class="card-image">
+                        <div class="card-icon"><i class="fas fa-envelope"></i></div>
                         <h2 class="image-header">Contact</h2>
                     </div>
                     <div class="card-content">
-                        <h3 class="card-title"><i class="fas fa-envelope"></i> Contact</h3>
                         <p class="card-description">Let's connect and discuss opportunities or ideas.</p>
                         <a href="contact.html" class="card-link">Get In Touch</a>
                     </div>
