@@ -312,10 +312,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     <!-- Mobile Menu -->
                     <div class="mobile-menu">
-                        <button class="mobile-menu-close" aria-label="Close menu">✕</button>
-
                         <div class="mobile-menu-header">
-                            <div class="mobile-menu-logo-title">
+                            <div class="logo-container">
                                 <a href="index.html">
                                     <img src="images/glasses icon.png" alt="Chris Augustine">
                                 </a>
@@ -323,6 +321,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <h2>Chris Augustine</h2>
                                 </a>
                             </div>
+                            <button class="mobile-menu-close" aria-label="Close menu">✕</button>
                         </div>
                         
                         <ul class="mobile-nav-links">
