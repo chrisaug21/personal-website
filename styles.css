@@ -1,6 +1,6 @@
 :root {
     --blue-primary: #0077CC;    /* Ocean Blue - for primary elements, headings, buttons */
-    --blue-secondary: #8DA2C0;  /* Periwinkle Blue - for secondary elements and components */
+    --blue-secondary: #B0C4E0;  /* Periwinkle Blue - for secondary elements and components */
     --gold-accent: #F2C94C;     /* Gold - for accent elements and highlights */
     --white: #F8F9FA;           /* Off-White - for backgrounds */
     --black: #2F4858;           /* Dark Blue-Gray - for text */
@@ -10,16 +10,21 @@
     --box-bg: #E6ECF2;          /* Lighter blue-gray for box backgrounds */
 }
 
-html, body {
-    background-color: var(--white) !important;
-    color: var(--black) !important;
-}
-
 /* Reset and base styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: var(--white) !important;
+    color: var(--black) !important;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -125,23 +130,54 @@ b, strong {
 /* Layout */
 header, section, footer {
     padding: 1rem;
-    max-width: 1200px;
     margin: 0 auto;
     width: 100%;
     box-sizing: border-box;
 }
 
+header {
+    padding: 0;
+    margin: 0;
+    max-width: 100vw;
+    width: 100vw;
+    overflow: hidden;
+}
+
 section {
+    max-width: 1200px;
     margin: 1rem auto;
+    padding: 1rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin: 0;
+    color: var(--white);
+    background-color: var(--blue-primary);
+    border-top: 0;
+    width: 100vw;
+    left: 0;
+    right: 0;
 }
 
 /* Navigation */
 nav {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    margin: 0;
+    width: 100vw;
+    left: 0;
+    right: 0;
+    background-color: var(--gold-accent);
+}
+
+.nav-container {
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
-    margin-bottom: 0;
     width: 100%;
     max-width: 1200px;
 }
@@ -171,7 +207,7 @@ nav {
     color: var(--black);
     font-weight: 700;
     font-size: 18px;
-    padding: 0.5rem 0;
+    padding: 0.5rem 1rem;
     border-radius: 4px;
     transition: all 0.3s ease;
     font-family: 'Lato', sans-serif;
@@ -179,14 +215,20 @@ nav {
 }
 
 .nav-links a:hover {
-    color: var(--blue-secondary);
-    background-color: transparent;
-    transform: none;
+    color: var(--white);
+    background-color: var(--blue-primary);
+    transform: translateY(-2px);
 }
 
 .nav-links a.active {
     color: var(--blue-primary);
     border-bottom: none;
+    background-color: rgba(0, 119, 204, 0.1);
+}
+
+.nav-links a.active:hover {
+    color: var(--white);
+    background-color: var(--blue-primary);
 }
 
 .nav-links a.active::after {
@@ -346,15 +388,6 @@ section h2:after {
     margin: 1rem 0.5rem;
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 2rem;
-    color: var(--white);
-    background-color: var(--blue-secondary);
-    border-top: 0;
-}
-
 /* Responsive design */
 @media (max-width: 768px) {
     .hero h1 {
@@ -370,11 +403,11 @@ footer {
     }
     
     nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: relative;
-        padding: 1rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .nav-container {
+        padding: 0;
     }
     
     .logo {
@@ -392,15 +425,17 @@ footer {
 
 /* Construction banner */
 .construction-banner {
-    background-color: var(--gold-accent);
-    color: var(--black);
+    background-color: var(--blue-primary);
+    color: var(--white);
     text-align: center;
     padding: 0.5rem;
     font-weight: bold;
     position: relative;
     z-index: 1003;
-    width: 100%;
-    border-bottom: none;
+    width: 100vw;
+    margin: 0;
+    left: 0;
+    right: 0;
 }
 
 /* Mobile menu additions */
@@ -474,6 +509,9 @@ footer {
     width: 100%;
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--gray-light);
+    background-color: var(--gold-accent);
+    margin: -80px -2rem 2rem -2rem;
+    padding: 1.5rem 2rem;
 }
 
 .mobile-menu-header img {
@@ -605,4 +643,13 @@ footer {
     border-radius: 8px;
     border: 1px solid #D1D9E6;
     box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+/* Main container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
 }

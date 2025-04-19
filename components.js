@@ -20,22 +20,47 @@ document.addEventListener('DOMContentLoaded', function() {
                 <style>
                     #header-placeholder {
                         font-size: 16px !important;
+                        width: 100vw !important;
+                        margin: 0 !important;
+                        padding: 0 !important;
+                        overflow-x: hidden !important;
                     }
                     #header-placeholder .construction-banner {
                         font-size: 16px !important;
                         padding: 0.5rem !important;
                         z-index: 1003 !important;
+                        margin: 0 !important;
+                        width: 100vw !important;
+                        box-sizing: border-box !important;
                     }
                     #header-placeholder header {
                         font-size: 16px !important;
                         position: relative !important;
+                        padding: 0 !important;
+                        margin: 0 !important;
+                        max-width: 100vw !important;
+                        width: 100vw !important;
+                        box-sizing: border-box !important;
                     }
                     #header-placeholder nav {
                         font-size: 16px !important;
                         display: flex !important;
+                        justify-content: center !important;
+                        align-items: center !important;
+                        width: 100vw !important;
+                        max-width: 100vw !important;
+                        margin: 0 !important;
+                        padding: 1rem !important;
+                        background-color: var(--gold-accent) !important;
+                        box-sizing: border-box !important;
+                    }
+                    #header-placeholder .nav-container {
+                        max-width: 1200px !important;
+                        margin: 0 auto !important;
+                        width: 100% !important;
+                        display: flex !important;
                         justify-content: space-between !important;
                         align-items: center !important;
-                        width: 100% !important;
                     }
                     #header-placeholder .logo {
                         flex-shrink: 0;
@@ -70,11 +95,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                     #header-placeholder .nav-links a.active {
                         color: #0077cc !important;
-                        border-bottom: 2px solid #0077cc !important;
+                        background-color: rgba(0, 119, 204, 0.1) !important;
                     }
                     #header-placeholder .nav-links a.active:hover {
                         color: white !important;
-                        border-bottom: 2px solid white !important;
+                        background-color: #0077cc !important;
                     }
                     
                     /* Mobile menu styles */
@@ -271,16 +296,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     🚧 This website is under construction - all content may be placeholder or work-in-progress 🚧
                 </div>
                 <header>
-                    <nav style="margin-bottom: 0; display: flex; justify-content: space-between; align-items: center;">
-                        <div class="logo"><a href="index.html"><img src="images/glasses icon.png" alt="Chris Augustine"></a></div>
-                        <ul class="nav-links">
-                            <li><a href="about.html" class="${pageName === 'about' ? 'active' : ''}">About</a></li>
-                            <li><a href="experience-journey.html" class="${pageName === 'experience-journey' || pageName === 'experience' ? 'active' : ''}">Experience</a></li>
-                            <li><a href="skills.html" class="${pageName === 'skills' ? 'active' : ''}">Skills</a></li>
-                            <li><a href="philosophy.html" class="${pageName === 'philosophy' ? 'active' : ''}">Philosophy</a></li>
-                            <li><a href="contact.html" class="${pageName === 'contact' ? 'active' : ''}">Contact</a></li>
-                        </ul>
-                        <button class="mobile-menu-button" aria-label="Open menu">☰</button>
+                    <nav>
+                        <div class="nav-container">
+                            <div class="logo"><a href="index.html"><img src="images/glasses icon.png" alt="Chris Augustine"></a></div>
+                            <ul class="nav-links">
+                                <li><a href="about.html" class="${pageName === 'about' ? 'active' : ''}">About</a></li>
+                                <li><a href="experience-journey.html" class="${pageName === 'experience-journey' || pageName === 'experience' ? 'active' : ''}">Experience</a></li>
+                                <li><a href="skills.html" class="${pageName === 'skills' ? 'active' : ''}">Skills</a></li>
+                                <li><a href="philosophy.html" class="${pageName === 'philosophy' ? 'active' : ''}">Philosophy</a></li>
+                                <li><a href="contact.html" class="${pageName === 'contact' ? 'active' : ''}">Contact</a></li>
+                            </ul>
+                            <button class="mobile-menu-button" aria-label="Open menu">☰</button>
+                        </div>
                     </nav>
                     
                     <!-- Mobile Menu -->
