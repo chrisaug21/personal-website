@@ -24,6 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         margin: 0 !important;
                         padding: 0 !important;
                         overflow-x: hidden !important;
+                        max-width: 100% !important;
+                        box-sizing: border-box !important;
                     }
                     #header-placeholder .construction-banner {
                         font-size: 16px !important;
@@ -41,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         max-width: 100vw !important;
                         width: 100vw !important;
                         box-sizing: border-box !important;
+                        overflow: hidden !important;
                     }
                     #header-placeholder nav {
                         font-size: 16px !important;
@@ -53,6 +56,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         padding: 1rem !important;
                         background-color: var(--gold-accent) !important;
                         box-sizing: border-box !important;
+                        position: relative !important;
+                        left: 0 !important;
+                        right: 0 !important;
                     }
                     #header-placeholder .nav-container {
                         max-width: 1200px !important;
@@ -138,8 +144,21 @@ document.addEventListener('DOMContentLoaded', function() {
                         transition: opacity 0.4s ease, transform 0.4s ease !important;
                         opacity: 0 !important;
                         transform: translateY(-20px) !important;
-                        padding: 80px 2rem 2rem 2rem !important;
+                        padding-top: 0 !important;
                         overflow-y: auto !important;
+                    }
+                    
+                    #header-placeholder .mobile-menu-header {
+                        display: flex !important;
+                        align-items: center !important;
+                        justify-content: space-between !important;
+                        width: 100vw !important;
+                        padding: 1.5rem 2rem !important;
+                        background-color: var(--gold-accent) !important;
+                        position: relative !important;
+                        box-sizing: border-box !important;
+                        margin-bottom: 2rem !important;
+                        border-bottom: 1px solid rgba(0,0,0,0.1) !important;
                     }
                     
                     #header-placeholder .mobile-menu.open {
@@ -149,6 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                     
                     #header-placeholder .mobile-menu-close {
+                        display: block !important;
                         font-size: 32px !important;
                         background: none !important;
                         border: none !important;
@@ -156,23 +176,12 @@ document.addEventListener('DOMContentLoaded', function() {
                         cursor: pointer !important;
                         z-index: 1005 !important;
                         padding: 0 !important;
-                        position: absolute !important;
-                        right: 2rem !important;
-                        top: 35px !important;
+                        margin: 0 !important;
                     }
                     
                     #header-placeholder .mobile-menu-close:hover {
                         color: #0077cc !important;
                         transform: rotate(90deg) !important;
-                    }
-                    
-                    #header-placeholder .mobile-menu-header {
-                        display: flex !important;
-                        align-items: center !important;
-                        margin-bottom: 2rem !important;
-                        width: 100% !important;
-                        padding-bottom: 1rem !important;
-                        border-bottom: 1px solid rgba(0,0,0,0.1) !important;
                     }
                     
                     #header-placeholder .mobile-menu-logo-title {
@@ -203,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         align-items: flex-start !important;
                         gap: 0.5rem !important;
                         width: 100% !important;
-                        padding: 0 !important;
+                        padding: 0 2rem !important;
                         margin: 0 0 auto 0 !important;
                     }
                     
@@ -281,6 +290,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         
                         #header-placeholder nav {
                             padding: 0.5rem 1rem !important;
+                            width: 100vw !important;
+                            max-width: 100vw !important;
+                            left: 0 !important;
+                            right: 0 !important;
+                            margin: 0 !important;
                         }
                         
                         #header-placeholder .logo img {
@@ -312,8 +326,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     <!-- Mobile Menu -->
                     <div class="mobile-menu">
-                        <button class="mobile-menu-close" aria-label="Close menu">✕</button>
-
                         <div class="mobile-menu-header">
                             <div class="mobile-menu-logo-title">
                                 <a href="index.html">
@@ -323,6 +335,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <h2>Chris Augustine</h2>
                                 </a>
                             </div>
+                            <button class="mobile-menu-close" aria-label="Close menu">✕</button>
                         </div>
                         
                         <ul class="mobile-nav-links">
